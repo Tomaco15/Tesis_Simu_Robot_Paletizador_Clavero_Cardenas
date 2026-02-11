@@ -205,3 +205,60 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+
+## recomendacion gemini
+
+# === ROS 2 (Colcon) ===
+# Ignora las carpetas que se generan al compilar el workspace
+install/
+build/
+log/
+# Archivos de configuración local
+.colcon/
+
+# === Python ===
+# Archivos compilados y temporales
+__pycache__/
+*.py[cod]
+*$py.class
+# Entornos virtuales
+.venv/
+env/
+venv/
+# Archivos de distribución y paquetes
+dist/
+wheels/
+*.egg-info/
+
+# === C / C++ (Usado en paquetes de ROS 2) ===
+# Objetos y binarios
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+# Archivos de proyecto de CMake (si no usas colcon directamente)
+CMakeCache.txt
+CMakeFiles/
+CMakeSettings.json
+
+# === Herramientas de Ingeniería (CAD y MATLAB) ===
+# Útil para modelos de Fusion 360 o scripts de control
+*.asv
+*.slxc
+*.mat
+*.step.lock
+*.stl.lock
+
+# === Editores de Código e IDEs ===
+# Configuraciones locales de Visual Studio Code
+.vscode/
+# Configuraciones de PyCharm / IntelliJ
+.idea/
+
+# === Archivos del Sistema ===
+.DS_Store
+Thumbs.db
