@@ -1,10 +1,10 @@
 # Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
 # Sistema Robótico de Paletizado para Bandejas de Arándanos
-**Autor:** Tomás Cárdenas
+**Autors:** Tomás Cárdenas y Benjamín CLavero | 
 **Institución:** Universidad del Bío-Bío - Ingeniería Civil en Automatización
 
 ## Descripción
-Este proyecto consiste en el desarrollo de un sistema automatizado para el ordenamiento y paletizado de bandejas de cosecha de arándanos utilizando visión artificial y control robótico.
+Este proyecto consiste en el desarrollo de un gemelo digital para un sistema automatizado para el ordenamiento y paletizado de bandejas de cosecha de arándanos utilizando visión artificial y control robótico.
 
 ## Tecnologías Utilizadas
 * **Sistema Operativo:** Ubuntu 22.04 (Jammy Jellyfish) en WSL2.
