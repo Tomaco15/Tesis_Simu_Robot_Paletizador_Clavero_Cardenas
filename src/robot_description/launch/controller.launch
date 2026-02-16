@@ -1,6 +1,6 @@
 <launch>
 
-<rosparam file="$(find base_link_v_respaldo_description)/launch/controller.yaml" command="load"/>
+<rosparam file="$(find robot_description)/launch/controller.yaml" command="load"/>
 <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="base_link_v_respaldo" args="Corredera 3_position_controller Corredera 4_position_controller Corredera 9_position_controller Corredera 10_position_controller Corredera 13_position_controller Corredera 14_position_controller joint_state_controller "/>
 <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
   <remap from="/joint_states" to="/base_link_v_respaldo/joint_states"/>

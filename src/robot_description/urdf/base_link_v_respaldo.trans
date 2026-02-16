@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
-<robot name="base_link_v_respaldo" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="base_link" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <transmission name="Corredera 3_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Corredera 3">
+  <joint name="Eje x">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="Corredera 3_actr">
@@ -14,7 +14,7 @@
 
 <transmission name="Corredera 4_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Corredera 4">
+  <joint name="Eje x copia">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="Corredera 4_actr">
@@ -25,7 +25,7 @@
 
 <transmission name="Corredera 9_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Corredera 9">
+  <joint name="Eje y">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="Corredera 9_actr">
@@ -36,7 +36,7 @@
 
 <transmission name="Corredera 10_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Corredera 10">
+  <joint name="Eje z">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="Corredera 10_actr">
@@ -47,7 +47,7 @@
 
 <transmission name="Corredera 13_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Corredera 13">
+  <joint name="muneca">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="Corredera 13_actr">

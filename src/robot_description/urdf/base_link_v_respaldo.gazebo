@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="base_link_v_respaldo" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="base_link" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
@@ -36,13 +36,6 @@
 </gazebo>
 
 <gazebo reference="base_y_der_1_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="eje_carro_y_1_1">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>

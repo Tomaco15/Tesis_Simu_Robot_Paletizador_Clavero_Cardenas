@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="base_link_v_respaldo" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find base_link_v_respaldo_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find base_link_v_respaldo_description)/urdf/base_link_v_respaldo.trans" />
-<xacro:include filename="$(find base_link_v_respaldo_description)/urdf/base_link_v_respaldo.gazebo" />
+<xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_description)/urdf/base_link_v_respaldo.trans" />
+<xacro:include filename="$(find robot_description)/urdf/base_link_v_respaldo.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="0.9227209592130785 0.5670413416556851 0.5148358419198835" rpy="0 0 0"/>
@@ -13,14 +13,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -34,14 +34,14 @@
   <visual>
     <origin xyz="-2.0 0.04 -0.72" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-2.0 0.04 -0.72" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -55,14 +55,14 @@
   <visual>
     <origin xyz="0.0 0.04 -0.72" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.0 0.04 -0.72" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -76,14 +76,14 @@
   <visual>
     <origin xyz="-0.025 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_y_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_y_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.025 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_y_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_y_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -97,35 +97,14 @@
   <visual>
     <origin xyz="-1.975 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_y_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_y_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-1.975 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_y_der_1_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="eje_carro_y_1_1">
-  <inertial>
-    <origin xyz="-0.9750000407869023 -0.01250028156917038 -0.040000044678056845" rpy="0 0 0"/>
-    <mass value="30.614999999998826"/>
-    <inertia ixx="0.017923" iyy="9.717456" izz="9.702723" ixy="0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-1.897721 -0.733742 -1.456073" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-1.897721 -0.733742 -1.456073" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_y_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -139,14 +118,14 @@
   <visual>
     <origin xyz="0.052279 -0.733742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.052279 -0.733742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -160,14 +139,14 @@
   <visual>
     <origin xyz="0.052279 -0.708742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.052279 -0.708742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -181,14 +160,14 @@
   <visual>
     <origin xyz="-0.509116 -0.683742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_z_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_z_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.509116 -0.683742 -1.456073" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/carro_z_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/carro_z_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -202,14 +181,14 @@
   <visual>
     <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/soporte_camara_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/soporte_camara_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/soporte_camara_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/soporte_camara_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -223,14 +202,14 @@
   <visual>
     <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_muneca_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_muneca_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_muneca_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_muneca_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -244,14 +223,14 @@
   <visual>
     <origin xyz="-0.652234 -0.367376 -0.402215" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_muneca_izq_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_muneca_izq_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.652234 -0.367376 -0.402215" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_muneca_izq_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_muneca_izq_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -265,14 +244,14 @@
   <visual>
     <origin xyz="-0.732234 -0.367376 -0.362215" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_muneca_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_muneca_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.732234 -0.367376 -0.362215" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/eje_muneca_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/eje_muneca_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -286,14 +265,14 @@
   <visual>
     <origin xyz="-0.744269 -0.900107 -1.080989" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/paleta_muneca_der_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/paleta_muneca_der_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.744269 -0.900107 -1.080989" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/paleta_muneca_der_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/paleta_muneca_der_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -307,14 +286,14 @@
   <visual>
     <origin xyz="-0.207876 -0.392484 -1.069671" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/paleta_muneca_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/paleta_muneca_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.207876 -0.392484 -1.069671" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/paleta_muneca_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/paleta_muneca_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -328,14 +307,14 @@
   <visual>
     <origin xyz="0.0 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_eje_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_eje_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.0 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_eje_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_eje_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -349,92 +328,94 @@
   <visual>
     <origin xyz="-2.04 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_eje_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_eje_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-2.04 0.04 -0.64" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://base_link_v_respaldo_description/meshes/base_eje_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_description/meshes/base_eje_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<joint name="Corredera 3" type="prismatic">
+<joint name="Eje x" type="prismatic">
   <origin xyz="-0.04 0.0 0.08" rpy="0 0 0"/>
   <parent link="base_eje_x_der_1_1"/>
   <child link="carro_x_der_1_1"/>
   <axis xyz="-0.0 -1.0 0.0"/>
-  <limit upper="-0.2" lower="-1.75" effort="100" velocity="100"/>
+  <limit upper="+0.2" lower="-0.40" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Corredera 4" type="prismatic">
+<joint name="Eje x copia" type="prismatic">
   <origin xyz="0.0 0.0 0.08" rpy="0 0 0"/>
   <parent link="base_eje_x_izq_1_1"/>
   <child link="carro_x_izq_1_1"/>
   <axis xyz="0.0 1.0 -0.0"/>
   <limit upper="0.75" lower="0.2" effort="100" velocity="100"/>
+  <mimic joint="Eje x" multiplier="-1.0" offset="0.0"/>
 </joint>
 
-<joint name="Rígida 5" type="fixed">
+<joint name="Rigida 5" type="fixed">
   <origin xyz="0.025 0.0 -0.08" rpy="0 0 0"/>
   <parent link="carro_x_izq_1_1"/>
   <child link="base_y_izq_1_1"/>
 </joint>
 
-<joint name="Rígida 6" type="fixed">
+<joint name="Rigida 6" type="fixed">
   <origin xyz="-0.025 0.0 -0.08" rpy="0 0 0"/>
   <parent link="carro_x_der_1_1"/>
   <child link="base_y_der_1_1"/>
 </joint>
 
-<joint name="Rígida 7" type="fixed">
+<joint name="Rigida 7" type="fixed">
   <origin xyz="-2.027279 0.773742 0.816073" rpy="0 0 0"/>
   <parent link="base_y_der_1_1"/>
   <child link="eje_carro_y_1_1"/>
 </joint>
 
-<joint name="Rígida 8" type="fixed">
+<joint name="Rigida 8" type="fixed">
   <origin xyz="-0.077279 0.773742 0.816073" rpy="0 0 0"/>
   <parent link="base_y_izq_1_1"/>
   <child link="eje_carro_y_1_1"/>
 </joint>
 
-<joint name="Corredera 9" type="prismatic">
+<joint name="Eje y" type="prismatic">
   <origin xyz="0.0 -0.025 0.0" rpy="0 0 0"/>
   <parent link="eje_carro_y_1_1"/>
   <child link="carro_y_1_1"/>
   <axis xyz="1.0 0.0 0.0"/>
-  <limit upper="1.7" lower="0.2" effort="100" velocity="100"/>
+  <limit upper="0.71" lower="-0.75" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Corredera 10" type="prismatic">
+<joint name="Eje z" type="prismatic">
   <origin xyz="0.561395 -0.025 0.0" rpy="0 0 0"/>
   <parent link="carro_y_1_1"/>
   <child link="carro_z_1_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
   <limit upper="-0.05" lower="-1.0" effort="100" velocity="100"/>
+  
 </joint>
 
-<joint name="Rígida 11" type="fixed">
+<joint name="Rigida 11" type="fixed">
   <origin xyz="0.0 -0.025 -0.864471" rpy="0 0 0"/>
   <parent link="carro_z_1_1"/>
   <child link="soporte_camara_1_1"/>
 </joint>
 
-<joint name="Rígida 12" type="fixed">
+<joint name="Rigida 12" type="fixed">
   <origin xyz="0.0 -0.025 -0.864471" rpy="0 0 0"/>
   <parent link="carro_z_1_1"/>
   <child link="base_muneca_1_1"/>
 </joint>
 
-<joint name="Corredera 13" type="prismatic">
+<joint name="muneca" type="prismatic">
   <origin xyz="0.143118 -0.291366 -0.189387" rpy="0 0 0"/>
   <parent link="base_muneca_1_1"/>
   <child link="eje_muneca_izq_1"/>
   <axis xyz="-1.0 0.0 -0.0"/>
-  <limit upper="-0.08" lower="-0.14" effort="100" velocity="100"/>
+  <limit upper="+0.08" lower="-0.05" effort="100" velocity="100"/>
 </joint>
 
 <joint name="Corredera 14" type="prismatic">
@@ -442,28 +423,29 @@
   <parent link="base_muneca_1_1"/>
   <child link="eje_muneca_der_1_1"/>
   <axis xyz="1.0 -0.0 0.0"/>
-  <limit upper="-0.08" lower="-0.14" effort="100" velocity="100"/>
+  <limit upper="+0.08" lower="-0.05" effort="100" velocity="100"/>
+    <mimic joint="muneca" multiplier="+1.0" offset="0.0"/>
 </joint>
 
-<joint name="Rígida 15" type="fixed">
+<joint name="Rigida 15" type="fixed">
   <origin xyz="0.012035 0.532731 0.718774" rpy="0 0 0"/>
   <parent link="eje_muneca_der_1_1"/>
   <child link="paleta_muneca_der_1"/>
 </joint>
 
-<joint name="Rígida 16" type="fixed">
+<joint name="Rigida 16" type="fixed">
   <origin xyz="-0.444358 0.025108 0.667456" rpy="0 0 0"/>
   <parent link="eje_muneca_izq_1"/>
   <child link="paleta_muneca_izq_1_1"/>
 </joint>
 
-<joint name="Rígida 17" type="fixed">
+<joint name="Rigida 17" type="fixed">
   <origin xyz="0.0 -0.04 0.64" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="base_eje_x_izq_1_1"/>
 </joint>
 
-<joint name="Rígida 18" type="fixed">
+<joint name="Rigida 18" type="fixed">
   <origin xyz="2.04 -0.04 0.64" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="base_eje_x_der_1_1"/>
