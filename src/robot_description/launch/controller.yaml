@@ -1,0 +1,31 @@
+base_link_v_respaldo_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  Corredera 3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Corredera 4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 4
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Corredera 9_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 9
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Corredera 10_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 10
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Corredera 13_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 13
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Corredera 14_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Corredera 14
+    pid: {p: 100.0, i: 0.01, d: 10.0}

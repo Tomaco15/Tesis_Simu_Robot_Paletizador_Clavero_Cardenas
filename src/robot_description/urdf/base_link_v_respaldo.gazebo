@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<robot name="base_link" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="carro_x_der_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="carro_x_izq_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="base_y_izq_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="base_y_der_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="eje_carro_y_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="carro_y_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="carro_z_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="soporte_camara_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="base_muneca_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="eje_muneca_izq_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="eje_muneca_der_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="paleta_muneca_der_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="paleta_muneca_izq_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="base_eje_x_izq_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="base_eje_x_der_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>
