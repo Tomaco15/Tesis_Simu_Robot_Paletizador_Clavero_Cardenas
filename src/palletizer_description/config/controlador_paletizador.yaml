@@ -1,0 +1,24 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Frecuencia de actualización en Hz
+
+    # Publica el estado de los joints (posición/velocidad) para que RVIZ los vea
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # Controlador para mover los ejes del paletizador
+    paletizador_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+paletizador_controller:
+  ros__parameters:
+    joints:
+      - "Eje x"   # Comillas añadidas por seguridad debido al espacio
+      - "Eje y"
+      - "Eje z"
+      - "muneca"  # ¡Articulación de la muñeca añadida!
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

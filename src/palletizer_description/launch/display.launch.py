@@ -6,10 +6,11 @@ from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('robot_description')
+    # Este deve contener el nombre del paquete y la ruta al archivo xacro
+    pkg_share = get_package_share_directory('palletizer_description')
     
-    # Ruta al archivo xacro (ajustado según tu imagen)
-    xacro_file = os.path.join(pkg_share, 'urdf', 'base_link_v_respaldo.xacro')
+    # Ruta al archivo xacro
+    xacro_file = os.path.join(pkg_share, 'urdf', 'palletizer.xacro')
 
     return LaunchDescription([
         Node(
@@ -17,6 +18,7 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
+            # ¡Corregido el nombre del parámetro a 'robot_description'!
             parameters=[{'robot_description': Command(['xacro ', xacro_file])}]
         ),
         Node(
@@ -31,4 +33,3 @@ def generate_launch_description():
             output='screen'
         )
     ])
-    
