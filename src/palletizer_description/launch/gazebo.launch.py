@@ -41,10 +41,30 @@ def generate_launch_description():
         executable='create',
         arguments=['-topic', 'robot_description',
                    '-name', 'paletizador',
-                   '-z', '0.01'], # Elevado 1 centímetro
+                   '-z', '-0.1'], # Elevado -10 centímetro
         output='screen'
     )
 
+    #5.1 Añadir la caja en la zona de alimentación
+    spawn_caja = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=['-file', os.path.join(get_package_share_directory(pkg_name), 'urdf', 'caja.sdf'),
+                   '-name', 'caja_1',
+                   '-x', '0.15', '-y', '0.5', '-z', '0.1'], # Coordenada dentro del alcance del robot
+        output='screen'
+    )
+
+    # 5.2 Añadir el pallet en la zona de paletizado
+    spawn_pallet = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=['-file', os.path.join(get_package_share_directory(pkg_name), 'urdf', 'pallet.sdf'),
+                   '-name', 'base_pallet',
+                   '-x', '1', '-y', '-0.5', '-z', '0.01'], # Zona opuesta al robot
+        output='screen'
+    )
+    
     # 6. Cargar los controladores
     load_joint_state_broadcaster = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
@@ -69,4 +89,6 @@ def generate_launch_description():
         gazebo,
         node_robot_state_publisher,
         spawn_entity,
+        spawn_caja,      
+        spawn_pallet,
     ])
