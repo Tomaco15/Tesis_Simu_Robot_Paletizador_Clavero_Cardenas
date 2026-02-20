@@ -41,7 +41,8 @@ def generate_launch_description():
         executable='create',
         arguments=['-topic', 'robot_description',
                    '-name', 'paletizador',
-                   '-z', '-0.1'], # Elevado -10 centímetro
+                   '-z', '-0.1', # Elevado -10 centímetro
+                   '-Y', '1.5708'],   #  Rotación de 90 grados en y para que cioncida los ejes x y z dek robot con los de la simulacion
         output='screen'
     )
 
@@ -51,7 +52,7 @@ def generate_launch_description():
         executable='create',
         arguments=['-file', os.path.join(get_package_share_directory(pkg_name), 'urdf', 'caja.sdf'),
                    '-name', 'caja_1',
-                   '-x', '0.15', '-y', '0.5', '-z', '0.1'], # Coordenada dentro del alcance del robot
+                   '-x', '-0.59', '-y', '0.85', '-z', '0.1'], # Coordenada dentro del alcance del robot
         output='screen'
     )
 
@@ -61,7 +62,7 @@ def generate_launch_description():
         executable='create',
         arguments=['-file', os.path.join(get_package_share_directory(pkg_name), 'urdf', 'pallet.sdf'),
                    '-name', 'base_pallet',
-                   '-x', '1', '-y', '-0.5', '-z', '0.01'], # Zona opuesta al robot
+                   '-x', '0.69', '-y', '0.71', '-z', '0.07'], # Zona opuesta al robot
         output='screen'
     )
     
