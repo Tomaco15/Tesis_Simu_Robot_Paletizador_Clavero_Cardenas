@@ -33,17 +33,17 @@ class RutinaPickAndPlace(Node):
         # Límite Eje X: -0.40 a 0.20
         # Límite Eje Y: -0.75 a 0.71
         # =========================================================
-        Z_SEGURO = -0.1       
-        Z_CAJA = -0.88        
-        Z_PALLET = -0.80      
+        Z_SEGURO = 0.5      
+        Z_CAJA =  0.1       
+        Z_PALLET = 0.8    
         
         # Valores de los motores para llegar a la CAJA
-        MOTOR_X_CAJA = 0.15   # Ajustar mediante prueba y error
-        MOTOR_Y_CAJA = 0.50   # Ajustar mediante prueba y error
+        MOTOR_X_CAJA = 0.1   # Ajustar mediante prueba y error
+        MOTOR_Y_CAJA = -0.05   # Ajustar mediante prueba y error
         
         # Valores de los motores para llegar al PALLET
-        MOTOR_X_PALLET = -0.20 # Ajustar mediante prueba y error
-        MOTOR_Y_PALLET = 0.70  # Ajustar mediante prueba y error
+        MOTOR_X_PALLET = 0.16 # Ajustar mediante prueba y error
+        MOTOR_Y_PALLET = 1  # Ajustar mediante prueba y error
         
         ABIERTO = 0.08        
         CERRADO = -0.01       
