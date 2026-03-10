@@ -5,15 +5,17 @@ from builtin_interfaces.msg import Duration
 import sys
 
 # =========================================================
-# 🎯 CAMBIA ESTOS NÚMEROS Y GUARDA EL ARCHIVO
+# 🎯 CONFIGURACIÓN DE PRUEBA (Calibra aquí)
 # =========================================================
-PRUEBA_X = 0.20   # Límite: -0.40 a 0.20
-PRUEBA_Y = -0.05  # Límite: -0.75 a 0.71
+PRUEBA_X = 0.0  # Rango propuesto: 0.0 (Adelante) a 0.6 (Atras)
+PRUEBA_Y = 0.750    # Rango: -0.75  (Izquierda )a 0.75 (Derecha)
+PRUEBA_Z = 0.0# Rango: 0.85 (Abajo) a -0.05 (Arriba)
+PRUEBA_MUN = -0.08  # 0.08 (Abierta) | -0.05 (Cerrada)
 # =========================================================
 
-class CalibradorManual(Node):
+class CalibradorPaletizador(Node):
     def __init__(self):
-        super().__init__('nodo_calibrador')
+        super().__init__('nodo_calibrador_avanzado')
         self.publisher_ = self.create_publisher(
             JointTrajectory, 
             '/paletizador_controller/joint_trajectory', 
@@ -26,35 +28,37 @@ class CalibradorManual(Node):
             return
         
         msg = JointTrajectory()
-        # ¡AQUÍ ESTÁ LA MAGIA! Le enviamos los 4 nombres para que no entre en pánico
+        # Nombres exactos de tus joints en el XACRO
         msg.joint_names = ['Eje x', 'Eje y', 'Eje z', 'muneca']
         
         punto = JointTrajectoryPoint()
         
-        # Posiciones: [X, Y, Z (arriba seguro), Muñeca (abierta)]
-        punto.positions = [float(PRUEBA_X), float(PRUEBA_Y), -0.6, 0.08]
+        # Mapeo de posiciones enviadas a los 4 motores
+        punto.positions = [
+            float(PRUEBA_X), 
+            float(PRUEBA_Y), 
+            float(PRUEBA_Z), 
+            float(PRUEBA_MUN)
+        ]
+        
+        # Tiempo para completar el movimiento (2 segundos para suavidad)
         punto.time_from_start = Duration(sec=2, nanosec=0)
         
         msg.points.append(punto)
         self.publisher_.publish(msg)
         
-        self.get_logger().info(f'🎯 Motores enviados a -> X: {PRUEBA_X} | Y: {PRUEBA_Y}')
+        self.get_logger().info(f'🚀 Comandos -> X:{PRUEBA_X} | Y:{PRUEBA_Y} | Z:{PRUEBA_Z} | Pinza:{PRUEBA_MUN}')
         self.enviado = True
         
-        self.timer_apagado = self.create_timer(3.0, self.apagar)
-
-    def apagar(self):
-        self.get_logger().info('✅ Movimiento completado. Puedes cambiar los números y volver a ejecutar.')
-        sys.exit(0)
+        # Cierra el nodo automáticamente tras el envío
+        self.create_timer(3.0, lambda: sys.exit(0))
 
 def main(args=None):
     rclpy.init(args=args)
-    nodo = CalibradorManual()
+    nodo = CalibradorPaletizador()
     try:
         rclpy.spin(nodo)
     except SystemExit:
-        pass
-    except KeyboardInterrupt:
         pass
     nodo.destroy_node()
     rclpy.shutdown()

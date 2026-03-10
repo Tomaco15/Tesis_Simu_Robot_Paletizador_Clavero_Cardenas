@@ -7,6 +7,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 import xacro
 
+
 def generate_launch_description():
 
     # 1. Definir nombres y rutas
@@ -93,3 +94,13 @@ def generate_launch_description():
         spawn_caja,      
         spawn_pallet,
     ])
+    bridge_node = Node(
+    package='ros_gz_bridge',
+    executable='parameter_bridge',
+    arguments=[
+        # Formato: /topico_gazebo@tipo_mensaje_ros[tipo_mensaje_gazebo
+        '/camera/image_raw@sensor_msgs/msg/Image[ignition.msgs.Image',
+        '/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo'
+    ],
+    output='screen'
+    )

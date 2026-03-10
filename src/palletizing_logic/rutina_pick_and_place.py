@@ -30,10 +30,12 @@ class RutinaPickAndPlace(Node):
 # =========================================================
         # 🛠️ COORDENADAS DE LOS MOTORES (No del mundo)
         # Tienes que jugar con estos valores respetando los límites de tu .xacro
-        # Límite Eje X: -0.40 a 0.20
-        # Límite Eje Y: -0.75 a 0.71
+        # Límite Eje X: 0.0 a 0.6
+        # Límite Eje Y: -0.75 a 0.75
+        # Límite Eje z: 0.0 a 0.85
+        # Límite muneca: 0.08 a -0.05
         # =========================================================
-        Z_SEGURO = 0.5      
+        Z_SEGURO = 0.0     
         Z_CAJA =  0.1       
         Z_PALLET = 0.8    
         
@@ -46,7 +48,7 @@ class RutinaPickAndPlace(Node):
         MOTOR_Y_PALLET = 1  # Ajustar mediante prueba y error
         
         ABIERTO = 0.08        
-        CERRADO = -0.01       
+        CERRADO = -0.05       
         # =========================================================
 
         self.get_logger().info('🚀 Iniciando secuencia automática de Pick & Place...')
