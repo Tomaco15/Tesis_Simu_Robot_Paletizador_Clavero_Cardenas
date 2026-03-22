@@ -25,6 +25,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="base_eje_x_izq_1_1">
@@ -40,6 +46,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0.0 0.04 -0.64" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_eje_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="base_eje_x_der_1_1">
@@ -55,15 +67,21 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-2.04 0.04 -0.64" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_eje_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 17" type="fixed">
+  <joint name="rigida_17" type="fixed">
     <origin xyz="0.0 -0.04 0.64" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="base_eje_x_izq_1_1"/>
   </joint>
 
-  <joint name="Rigida 18" type="fixed">
+  <joint name="rigida_18" type="fixed">
     <origin xyz="2.04 -0.04 0.64" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="base_eje_x_der_1_1"/>
@@ -82,6 +100,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-2.0 0.04 -0.72" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/carro_x_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="carro_x_izq_1_1">
@@ -97,9 +121,15 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0.0 0.04 -0.72" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/carro_x_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Eje x" type="prismatic">
+  <joint name="eje_x" type="prismatic">
     <origin xyz="-0.04 0.0 0.08" rpy="0 0 0"/>
     <parent link="base_eje_x_der_1_1"/>
     <child link="carro_x_der_1_1"/>
@@ -108,13 +138,13 @@
     <dynamics damping="10.0"/>
   </joint>
 
-  <joint name="Eje x copia" type="prismatic">
+  <joint name="eje_x_copia" type="prismatic">
     <origin xyz="0.0 0.0 0.08" rpy="0 0 0"/>
     <parent link="base_eje_x_izq_1_1"/>
     <child link="carro_x_izq_1_1"/>
     <axis xyz="0 1 0"/>
     <limit lower="0.0" upper="0.6" effort="500" velocity="1.0"/>
-    <mimic joint="Eje x" multiplier="1.0" offset="0.0"/>
+    <mimic joint="eje_x" multiplier="1.0" offset="0.0"/>
     <dynamics damping="10.0"/>
   </joint>
 
@@ -131,6 +161,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.025 0.04 -0.64" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_y_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="base_y_der_1_1">
@@ -146,15 +182,21 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-1.975 0.04 -0.64" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_y_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 5" type="fixed">
+  <joint name="rigida_5" type="fixed">
     <origin xyz="0.025 0.0 -0.08" rpy="0 0 0"/>
     <parent link="carro_x_izq_1_1"/>
     <child link="base_y_izq_1_1"/>
   </joint>
 
-  <joint name="Rigida 6" type="fixed">
+  <joint name="rigida_6" type="fixed">
     <origin xyz="-0.025 0.0 -0.08" rpy="0 0 0"/>
     <parent link="carro_x_der_1_1"/>
     <child link="base_y_der_1_1"/>
@@ -173,9 +215,15 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0.052279 -0.733742 -1.456073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/eje_carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 7" type="fixed">
+  <joint name="rigida_7" type="fixed">
     <origin xyz="-2.027279 0.773742 0.816073" rpy="0 0 0"/>
     <parent link="base_y_der_1_1"/>
     <child link="eje_carro_y_1_1"/>
@@ -194,9 +242,15 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0.052279 -0.708742 -1.456073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/carro_y_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Eje y" type="prismatic">
+  <joint name="eje_y" type="prismatic">
     <origin xyz="0.0 -0.025 0.0" rpy="0 0 0"/>
     <parent link="eje_carro_y_1_1"/>
     <child link="carro_y_1_1"/>
@@ -217,19 +271,22 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.509116 -0.683742 -1.456073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/carro_z_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Eje z" type="prismatic">
-  <origin xyz="0.561395 -0.025 0.85" rpy="0 0 0"/>
-  <parent link="carro_y_1_1"/>
-  <child link="carro_z_1_1"/>
-  
-  <axis xyz="0.0 0.0 -1.0"/> 
-  
-  <limit upper="0.0" lower="0.85" effort="2000" velocity="1.0"/>
-  
-  <dynamics damping="1.0" friction="0.1"/> 
-</joint>
+ <joint name="eje_z" type="prismatic">
+    <origin xyz="0.561395 -0.025 0.85" rpy="0 0 0"/>
+    <parent link="carro_y_1_1"/>
+    <child link="carro_z_1_1"/>
+    <axis xyz="0.0 0.0 1.0"/> 
+    <limit lower="-0.90" upper="0.0" effort="2000" velocity="1.0"/>
+  </joint>
+
   <link name="base_muneca_1_1">
     <inertial>
       <origin xyz="-0.03999967265219412 -0.012500281569164162 0.01000026667695808" rpy="0 0 0"/>
@@ -243,9 +300,15 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/base_muneca_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 12" type="fixed">
+  <joint name="rigida_12" type="fixed">
     <origin xyz="0.0 -0.025 -0.864471" rpy="0 0 0"/>
     <parent link="carro_z_1_1"/>
     <child link="base_muneca_1_1"/>
@@ -264,6 +327,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.652234 -0.367376 -0.402215" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/eje_muneca_izq_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="eje_muneca_der_1_1">
@@ -279,6 +348,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.732234 -0.367376 -0.362215" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/eje_muneca_der_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="muneca" type="prismatic">
@@ -286,15 +361,15 @@
     <parent link="base_muneca_1_1"/>
     <child link="eje_muneca_izq_1"/>
     <axis xyz="-1.0 0.0 0.0"/>
-    <limit upper="0.08" lower="-0.05" effort="100" velocity="1.0"/>
+    <limit upper="0.08" lower="-0.05" effort="1000" velocity="1.0"/>
   </joint>
 
-  <joint name="Corredera 14" type="prismatic">
+  <joint name="corredera_14" type="prismatic">
     <origin xyz="0.223118 -0.291366 -0.229387" rpy="0 0 0"/>
     <parent link="base_muneca_1_1"/>
     <child link="eje_muneca_der_1_1"/>
     <axis xyz="1.0 0.0 0.0"/>
-    <limit upper="0.08" lower="-0.05" effort="100" velocity="1.0"/>
+    <limit upper="0.08" lower="-0.05" effort="1000" velocity="1.0"/>
     <mimic joint="muneca" multiplier="1.0" offset="0.0"/>
   </joint>
 
@@ -311,6 +386,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.744269 -0.900107 -1.080989" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/paleta_muneca_der_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="paleta_muneca_izq_1_1">
@@ -326,15 +407,21 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.207876 -0.392484 -1.069671" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/paleta_muneca_izq_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 15" type="fixed">
+  <joint name="rigida_15" type="fixed">
     <origin xyz="0.012035 0.532731 0.718774" rpy="0 0 0"/>
     <parent link="eje_muneca_der_1_1"/>
     <child link="paleta_muneca_der_1"/>
   </joint>
 
-  <joint name="Rigida 16" type="fixed">
+  <joint name="rigida_16" type="fixed">
     <origin xyz="-0.444358 0.025108 0.667456" rpy="0 0 0"/>
     <parent link="eje_muneca_izq_1"/>
     <child link="paleta_muneca_izq_1_1"/>
@@ -353,9 +440,15 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="-0.509116 -0.658742 -0.591602" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://palletizer_description/meshes/soporte_camara_1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
-  <joint name="Rigida 11" type="fixed">
+  <joint name="rigida_11" type="fixed">
     <origin xyz="0.0 -0.025 -0.864471" rpy="0 0 0"/>
     <parent link="carro_z_1_1"/>
     <child link="soporte_camara_1_1"/>
@@ -374,6 +467,12 @@
       </geometry>
       <material name="silver"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="camera_joint" type="fixed">
@@ -381,6 +480,20 @@
     <parent link="soporte_camara_1_1"/>
     <child link="camera_link"/>
   </joint>
+
+  <gazebo reference="paleta_muneca_der_1">
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="paleta_muneca_izq_1_1">
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
 
   <gazebo reference="camera_link">
     <sensor name="camera_sensor" type="camera">
@@ -410,7 +523,7 @@
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
     </hardware>
     
-    <joint name="Eje x">
+    <joint name="eje_x">
       <command_interface name="position">
         <param name="min">0.0</param>
         <param name="max">0.6</param>
@@ -419,15 +532,15 @@
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="Eje x copia">
-      <param name="mimic">Eje x</param>
+    <joint name="eje_x_copia">
+      <param name="mimic">eje_x</param>
       <param name="multiplier">1.0</param>
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="Eje y">
+    <joint name="eje_y">
       <command_interface name="position">
         <param name="min">-0.75</param>
         <param name="max">0.71</param>
@@ -436,10 +549,10 @@
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="Eje z">
+    <joint name="eje_z">
       <command_interface name="position">
-        <param name="min">0.0</param>
-        <param name="max">0.85</param>
+        <param name="min">-0.90</param>
+        <param name="max">0.0</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/> 
@@ -454,7 +567,7 @@
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="Corredera 14">
+    <joint name="corredera_14">
       <param name="mimic">muneca</param>
       <param name="multiplier">1.0</param>
       <command_interface name="position"/>
@@ -469,4 +582,31 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="carro_z_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="carro_z_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="base_muneca_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="eje_muneca_izq_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="eje_muneca_der_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="paleta_muneca_der_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="paleta_muneca_izq_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="soporte_camara_1_1">
+    <gravity>false</gravity>
+  </gazebo>
+  <gazebo reference="camera_link">
+    <gravity>false</gravity>
+  </gazebo>
 </robot>

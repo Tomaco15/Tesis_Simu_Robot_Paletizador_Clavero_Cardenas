@@ -7,10 +7,10 @@ import sys
 # =========================================================
 # 🎯 CONFIGURACIÓN DE PRUEBA (Calibra aquí)
 # =========================================================
-PRUEBA_X = 0.0  # Rango propuesto: 0.0 (Adelante) a 0.6 (Atras)
-PRUEBA_Y = 0.750    # Rango: -0.75  (Izquierda )a 0.75 (Derecha)
-PRUEBA_Z = 0.0# Rango: 0.85 (Abajo) a -0.05 (Arriba)
-PRUEBA_MUN = -0.08  # 0.08 (Abierta) | -0.05 (Cerrada)
+PRUEBA_X = 0.0 # Rango propuesto: 0.0 (Adelante) a 0.6 (Atras)
+PRUEBA_Y = 0.75   # Rango: -0.75  (Izquierda )a 0.75 (Derecha)
+PRUEBA_Z = 0.85 # Rango: 0.85 (Abajo) a -0.05 (Arriba)
+PRUEBA_MUN = 0.08  # 0.08 (Abierta) | -0.05 (Cerrada)
 # =========================================================
 
 class CalibradorPaletizador(Node):
@@ -29,7 +29,7 @@ class CalibradorPaletizador(Node):
         
         msg = JointTrajectory()
         # Nombres exactos de tus joints en el XACRO
-        msg.joint_names = ['Eje x', 'Eje y', 'Eje z', 'muneca']
+        msg.joint_names = ['eje_x', 'eje_y', 'eje_z', 'muneca']
         
         punto = JointTrajectoryPoint()
         
