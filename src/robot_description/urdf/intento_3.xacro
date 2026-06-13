@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<robot name="intento_3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find intento_3_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find intento_3_description)/urdf/intento_3.trans" />
+<xacro:include filename="$(find intento_3_description)/urdf/intento_3.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.02188989577440621 0.15521032921093825 0.42749226006191954" rpy="0 0 0"/>
+    <mass value="101.422"/>
+    <inertia ixx="40.20949" iyy="24.204177" izz="62.49768" ixy="0.0" iyz="-0.0" ixz="0.439557"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eje_x_link_1">
+  <inertial>
+    <origin xyz="0.041250329210947734 0.6900003292109645 0.41125000000000295" rpy="0 0 0"/>
+    <mass value="52.24960000000525"/>
+    <inertia ixx="15.110557" iyy="0.984306" izz="14.23407" ixy="-0.0" iyz="-0.0" ixz="-0.148177"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.15521 0.53479 -0.42" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.15521 0.53479 -0.42" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eje_y_link_1">
+  <inertial>
+    <origin xyz="0.012500329210939382 3.292109410912847e-07 -3.885780586188048e-15" rpy="0 0 0"/>
+    <mass value="1.255999999999999"/>
+    <inertia ixx="0.00134" iyy="0.000735" izz="0.000735" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.23521 -0.15521 -0.9" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.23521 -0.15521 -0.9" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eje_z_link_1">
+  <inertial>
+    <origin xyz="0.012500329210939354 3.292109410635291e-07 -3.6637359812630166e-15" rpy="0 0 0"/>
+    <mass value="18.839999999999982"/>
+    <inertia ixx="2.270848" iyy="2.261781" izz="0.011029" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.26021 -0.15521 -0.9" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.26021 -0.15521 -0.9" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_link_1">
+  <inertial>
+    <origin xyz="3.292107918495546e-07 3.2921094111904026e-07 -0.015770452998151885" rpy="0 0 0"/>
+    <mass value="0.021865375582669835"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.27271 -0.15521 -0.3" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.27271 -0.15521 -0.3" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="griper_der_link_1">
+  <inertial>
+    <origin xyz="-0.2727106707890608 -0.033899488385799315 -0.3080444546290409" rpy="0 0 0"/>
+    <mass value="0.15470751165339933"/>
+    <inertia ixx="0.000698" iyy="1.2e-05" izz="0.000688" ixy="-0.0" iyz="3.9e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.545421 -0.315421 -0.59" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.545421 -0.315421 -0.59" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="griper_izq_link_1">
+  <inertial>
+    <origin xyz="-0.27271067078906075 -0.27204842033391 -0.29660359519475155" rpy="0 0 0"/>
+    <mass value="0.14685751165339933"/>
+    <inertia ixx="0.000634" iyy="5e-06" izz="0.00063" ixy="-0.0" iyz="-2.1e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.545421 -0.305421 -0.57" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.545421 -0.305421 -0.57" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://intento_3_description/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="x_joint" type="prismatic">
+  <origin xyz="0.15521 -0.53479 0.42" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="eje_x_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="0.65" lower="-0.65" effort="100" velocity="100"/>
+</joint>
+
+<joint name="y_joint" type="prismatic">
+  <origin xyz="0.08 0.69 0.48" rpy="0 0 0"/>
+  <parent link="eje_x_link_1"/>
+  <child link="eje_y_link_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="0.65" lower="-0.65" effort="100" velocity="100"/>
+</joint>
+
+<joint name="z_joint" type="prismatic">
+  <origin xyz="0.025 0.0 0.0" rpy="0 0 0"/>
+  <parent link="eje_y_link_1"/>
+  <child link="eje_z_link_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+  <limit upper="0.4" lower="-0.2" effort="100" velocity="100"/>
+</joint>
+
+<joint name="r_joint" type="revolute">
+  <origin xyz="0.0125 0.0 -0.6" rpy="0 0 0"/>
+  <parent link="eje_z_link_1"/>
+  <child link="r_link_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="3.141593" lower="-3.141593" effort="100" velocity="100"/>
+</joint>
+
+<joint name="griper_der_joint" type="prismatic">
+  <origin xyz="0.272711 0.160211 0.29" rpy="0 0 0"/>
+  <parent link="r_link_1"/>
+  <child link="griper_der_link_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+<joint name="griper_izq_joint" type="prismatic">
+  <origin xyz="0.272711 0.150211 0.27" rpy="0 0 0"/>
+  <parent link="r_link_1"/>
+  <child link="griper_izq_link_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+  <limit upper="0.0" lower="-0.1" effort="100" velocity="100"/>
+</joint>
+
+</robot>
