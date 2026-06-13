@@ -1,6 +1,6 @@
 # Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
 # Sistema Robótico de Paletizado para Bandejas de Arándanos
-**Autor:** Tomás Cárdenas
+**Autor:** Tomás Cárdenas , Benjamín Clavero
 **Institución:** Universidad del Bío-Bío - Ingeniería Civil en Automatización
 
 ## Descripción
