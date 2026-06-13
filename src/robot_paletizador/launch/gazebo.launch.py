@@ -23,20 +23,22 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_desc, 'use_sim_time': True}]
     )
 
-    # Incluir el lanzamiento de Gazebo (Classic Gazebo 11) de gazebo_ros
-    gazebo_ros_share = get_package_share_directory('gazebo_ros')
+    # Lanzar Ignition Gazebo (Fortress) con un mundo vacío
+    pkg_ros_ign_gazebo = get_package_share_directory('ros_ign_gazebo')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(gazebo_ros_share, 'launch', 'gazebo.launch.py')
-        )
+            os.path.join(pkg_ros_ign_gazebo, 'launch', 'ign_gazebo.launch.py')
+        ),
+        launch_arguments={'ign_args': '-r empty.sdf'}.items(),
     )
 
-    # Nodo para spawnear el robot en Gazebo
+    # Spawnear el robot usando la herramienta de Ignition Gazebo
     spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
+        package='ros_ign_gazebo',
+        executable='create',
         arguments=['-topic', 'robot_description',
-                   '-entity', 'robot_paletizador'],
+                   '-name', 'robot_paletizador',
+                   '-z', '0.1'], # Elevar un poco para evitar colisiones con el suelo al iniciar
         output='screen'
     )
 
