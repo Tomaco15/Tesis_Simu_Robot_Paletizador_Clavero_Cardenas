@@ -1,4 +1,4 @@
-# Instrucciones de Compilación y Lanzamiento (src)
+c# Instrucciones de Compilación y Lanzamiento (src)
 
 Este directorio contiene los paquetes de ROS 2 para la simulación y control del robot paletizador. A continuación se detallan los comandos necesarios para limpiar, compilar y ejecutar los diferentes entornos.
 
@@ -55,5 +55,5 @@ ros2 launch robot_paletizador display.launch.py
 Para cargar el robot en el simulador físico Gazebo, ejecuta:
 
 ```bash
-ros2 launch robot_paletizador gazebo.launch
+ros2 launch robot_paletizador gazebo.launch.py
 ```
