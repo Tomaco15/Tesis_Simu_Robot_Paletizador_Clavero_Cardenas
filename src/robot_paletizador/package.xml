@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>intento_3_description</name>
+  <name>robot_paletizador</name>
   <version>0.0.0</version>
-  <description>The intento_3_description package ported to ROS 2</description>
+  <description>El paquete robot_paletizador para simulación y control</description>
   <maintainer email="syuntoku14@todo.todo">syuntoku14</maintainer>
   <license>TODO</license>
 

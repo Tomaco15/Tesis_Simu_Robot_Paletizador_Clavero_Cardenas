@@ -1,4 +1,4 @@
-intento_3_controller:
+robot_paletizador_controller:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController

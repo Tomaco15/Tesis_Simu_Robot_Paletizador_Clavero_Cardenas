@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
-<robot name="intento_3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="robot_paletizador" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find intento_3_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find intento_3_description)/urdf/intento_3.trans" />
-<xacro:include filename="$(find intento_3_description)/urdf/intento_3.gazebo" />
+<xacro:include filename="$(find robot_paletizador)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_paletizador)/urdf/robot_paletizador.trans" />
+<xacro:include filename="$(find robot_paletizador)/urdf/robot_paletizador.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="0.02188989577440621 0.15521032921093825 0.42749226006191954" rpy="0 0 0"/>
@@ -13,14 +13,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -34,14 +34,14 @@
   <visual>
     <origin xyz="-0.15521 0.53479 -0.42" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.15521 0.53479 -0.42" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -55,14 +55,14 @@
   <visual>
     <origin xyz="-0.23521 -0.15521 -0.9" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.23521 -0.15521 -0.9" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -76,14 +76,14 @@
   <visual>
     <origin xyz="-0.26021 -0.15521 -0.9" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.26021 -0.15521 -0.9" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/eje_z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -97,14 +97,14 @@
   <visual>
     <origin xyz="-0.27271 -0.15521 -0.3" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.27271 -0.15521 -0.3" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/r_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -118,14 +118,14 @@
   <visual>
     <origin xyz="-0.545421 -0.315421 -0.59" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.545421 -0.315421 -0.59" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/griper_der_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -139,14 +139,14 @@
   <visual>
     <origin xyz="-0.545421 -0.305421 -0.57" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.545421 -0.305421 -0.57" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://intento_3_description/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_paletizador/meshes/griper_izq_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>

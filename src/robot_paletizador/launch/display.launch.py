@@ -6,11 +6,11 @@ from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    # El nombre del paquete es intento_3_description (definido en package.xml)
-    pkg_share = get_package_share_directory('intento_3_description')
+    # El nombre del paquete es robot_paletizador (definido en package.xml)
+    pkg_share = get_package_share_directory('robot_paletizador')
     
     # Ruta al archivo xacro
-    xacro_file = os.path.join(pkg_share, 'urdf', 'intento_3.xacro')
+    xacro_file = os.path.join(pkg_share, 'urdf', 'robot_paletizador.xacro')
 
     # Ruta por defecto del archivo de configuración de RViz
     default_rviz_config_path = os.path.join(pkg_share, 'config', 'urdf.rviz')
