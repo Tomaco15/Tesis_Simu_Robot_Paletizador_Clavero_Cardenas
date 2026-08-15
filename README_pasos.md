@@ -18,6 +18,14 @@ ros2 --help
 
 ## 2. Instalar dependencias
 
+Instala `pip` y las dependencias Python del proyecto:
+
+```bash
+sudo apt update
+sudo apt install python3-pip
+python3 -m pip install -r requirements.txt
+```
+
 Si `rosdep` todavía no está inicializado en el equipo:
 
 ```bash

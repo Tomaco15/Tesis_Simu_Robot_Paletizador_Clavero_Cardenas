@@ -30,19 +30,16 @@ El objetivo general de la tesis también contempla percepción mediante visión 
 - Gazebo Classic con `gazebo_ros` para el robot
 - Gazebo Sim con `ros_gz_sim` y `ros_gz_bridge` para la bandeja
 
-Las dependencias declaradas por los paquetes se pueden instalar con:
-
-```bash
-source /opt/ros/humble/setup.bash
-rosdep install --from-paths src --ignore-src -r -y
-```
-
 ## Instalación
 
 ```bash
 git clone git@github.com:Tomaco15/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas.git
 cd Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
+sudo apt update
+sudo apt install python3-pip
+python3 -m pip install -r requirements.txt
 source /opt/ros/humble/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash
 ```

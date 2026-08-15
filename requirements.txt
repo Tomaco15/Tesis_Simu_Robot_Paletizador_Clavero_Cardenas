@@ -1,0 +1,14 @@
+# Dependencias Python instalables con pip.
+# Requisito en Ubuntu: sudo apt install python3-pip
+# Instalación: python3 -m pip install -r requirements.txt
+
+# Construcción de los paquetes ament_python.
+setuptools>=58.2.0
+
+# Ejecución de las pruebas unitarias.
+pytest>=6.2.5
+
+# Las dependencias de ROS 2 (rclpy, launch, launch_ros, xacro,
+# ament_index_python, sensor_msgs y std_msgs) no se instalan con pip.
+# Las proporciona ROS 2 Humble. Para resolver las declaradas en package.xml:
+# rosdep install --from-paths src --ignore-src -r -y
