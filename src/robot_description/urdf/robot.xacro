@@ -1,0 +1,391 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_description)/urdf/robot.trans" />
+<xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.45768622613563736 -0.4368264195359295 0.4295018217497949" rpy="0 0 0"/>
+    <mass value="145.80079322670187"/>
+    <inertia ixx="27.178522" iyy="35.333395" izz="48.362655" ixy="-0.011589" iyz="0.792709" ixz="-0.004434"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="x_link_1">
+  <inertial>
+    <origin xyz="0.42900000000000316 -0.07702054233668737 0.4385579778257891" rpy="0 0 0"/>
+    <mass value="33.63690371299227"/>
+    <inertia ixx="0.818102" iyy="5.092965" izz="4.355089" ixy="-1e-06" iyz="0.097841" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="y_link_1">
+  <inertial>
+    <origin xyz="0.04000698904160172 0.007766885164565626 0.04585403252661013" rpy="0 0 0"/>
+    <mass value="0.5775307511653394"/>
+    <inertia ixx="0.000621" iyy="0.000717" izz="0.000536" ixy="-0.0" iyz="-6e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="z_link_1">
+  <inertial>
+    <origin xyz="-0.04012934689566563 -0.020235685434398354 -0.5125000000000013" rpy="0 0 0"/>
+    <mass value="22.428174832479133"/>
+    <inertia ixx="1.966316" iyy="1.974575" izz="0.013623" ixy="-5e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabezal_1">
+  <inertial>
+    <origin xyz="1.2055562844962009e-05 -0.074703758607254 0.074351694711558" rpy="0 0 0"/>
+    <mass value="5.246895030843086"/>
+    <inertia ixx="0.021135" iyy="0.008283" izz="0.018029" ixy="3e-06" iyz="0.004835" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Externo1_v1_1">
+  <inertial>
+    <origin xyz="-1.124100812432971e-15 2.220446049250313e-16 -0.035297157702443877" rpy="0 0 0"/>
+    <mass value="3.103290090272312"/>
+    <inertia ixx="0.00441" iyy="0.004405" izz="0.008074" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabezal_2.0_v1_1_1">
+  <inertial>
+    <origin xyz="-1.9836844046515478e-05 0.00327884619901872 -0.05001506846643826" rpy="0 0 0"/>
+    <mass value="5.768314857333685"/>
+    <inertia ixx="0.020245" iyy="0.020069" izz="0.011543" ixy="0.0" iyz="0.000603" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mg996R_v2_v1_1_1">
+  <inertial>
+    <origin xyz="-0.005038686876243849 0.008828221063192837 0.024744332717065876" rpy="0 0 0"/>
+    <mass value="0.24706045427040543"/>
+    <inertia ixx="6.5e-05" iyy="4.3e-05" izz="3.8e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_horn_v2_v1_1">
+  <inertial>
+    <origin xyz="1.3515116238912994e-05 -0.0031874939270762903 -1.5161483180037294e-15" rpy="0 0 0"/>
+    <mass value="0.005099610361289279"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Externo3_v1_1_1">
+  <inertial>
+    <origin xyz="5.512835039023223e-06 -0.0011958164319734732 -1.2455314557513475e-15" rpy="0 0 0"/>
+    <mass value="0.07977197198617901"/>
+    <inertia ixx="5e-06" iyy="3e-05" izz="2.6e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paleta_1_1">
+  <inertial>
+    <origin xyz="-0.1070194860087463 0.004431382652601179 2.2922718924400787e-08" rpy="0 0 0"/>
+    <mass value="0.3818616414823265"/>
+    <inertia ixx="2.1e-05" iyy="0.00184" izz="0.001847" ixy="-8e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paleta_2_1">
+  <inertial>
+    <origin xyz="0.10697797649072537 0.0053688772917466765 2.2922719278284376e-08" rpy="0 0 0"/>
+    <mass value="0.3818616414823265"/>
+    <inertia ixx="2.1e-05" iyy="0.00184" izz="0.001847" ixy="-8e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pala_IZQ_1">
+  <inertial>
+    <origin xyz="-0.02679441920888964 0.003882677544928881 -0.019023121817095687" rpy="0 0 0"/>
+    <mass value="1.1995109762545986"/>
+    <inertia ixx="0.003525" iyy="0.003481" izz="0.000292" ixy="0.0" iyz="-1e-06" ixz="-0.000204"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pala_DER_1">
+  <inertial>
+    <origin xyz="0.026759728063148136 0.004117255172863543 -0.019023121817094694" rpy="0 0 0"/>
+    <mass value="1.1995109762545986"/>
+    <inertia ixx="0.003525" iyy="0.003481" izz="0.000292" ixy="0.0" iyz="1e-06" ixz="0.000204"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="x_joint" type="prismatic">
+  <origin xyz="0.0285 0.0 0.603" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="x_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.94" lower="0.02" effort="10000" velocity="1000"/>
+</joint>
+
+<joint name="y_joint" type="prismatic">
+  <origin xyz="-0.0625 -0.12 0.478" rpy="0 0 0"/>
+  <parent link="x_link_1"/>
+  <child link="y_link_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+  <limit upper="0.838" lower="0.065" effort="10000" velocity="1000"/>
+</joint>
+
+<joint name="z_joint" type="prismatic">
+  <origin xyz="0.08 -0.0075 0.09" rpy="0 0 0"/>
+  <parent link="y_link_1"/>
+  <child link="z_link_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+  <limit upper="0" lower="-0.93" effort="10000" velocity="1000"/>
+</joint>
+
+<joint name="Rig_1" type="fixed">
+  <origin xyz="0.0 -0.04 -1.025" rpy="0 0 0"/>
+  <parent link="z_link_1"/>
+  <child link="cabezal_1"/>
+</joint>
+
+<joint name="R_joint" type="continuous">
+  <origin xyz="0.0 -0.05 0.0145" rpy="0 0 0"/>
+  <parent link="cabezal_1"/>
+  <child link="Externo1_v1_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Rig_2" type="fixed">
+  <origin xyz="0.0 0.0 -0.0495" rpy="0 0 0"/>
+  <parent link="Externo1_v1_1"/>
+  <child link="cabezal_2.0_v1_1_1"/>
+</joint>
+
+<joint name="Rig_3" type="fixed">
+  <origin xyz="0.00491 0.020522 -0.1155" rpy="0 0 0"/>
+  <parent link="cabezal_2.0_v1_1_1"/>
+  <child link="mg996R_v2_v1_1_1"/>
+</joint>
+
+<joint name="Rig_4" type="fixed">
+  <origin xyz="-0.004949 -0.011522 0.0345" rpy="0 0 0"/>
+  <parent link="mg996R_v2_v1_1_1"/>
+  <child link="Servo_horn_v2_v1_1"/>
+</joint>
+
+<joint name="Rig_5" type="fixed">
+  <origin xyz="1.9e-05 -0.0045 0.0" rpy="0 0 0"/>
+  <parent link="Servo_horn_v2_v1_1"/>
+  <child link="Externo3_v1_1_1"/>
+</joint>
+
+<joint name="Grid_IZQ" type="prismatic">
+  <origin xyz="-0.024978 -0.00511 0.0" rpy="0 0 0"/>
+  <parent link="Externo3_v1_1_1"/>
+  <child link="Paleta_1_1"/>
+  <axis xyz="-0.99999 -0.004384 0.0"/>
+  <mimic joint="Grid_DER" multiplier="-1" offset="0"/>
+  <limit upper="0.0" lower="-0.040" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Grid_DER" type="prismatic">
+  <origin xyz="0.025022 -0.00489 0.0" rpy="0 0 0"/>
+  <parent link="Externo3_v1_1_1"/>
+  <child link="Paleta_2_1"/>
+  <axis xyz="-0.99999 -0.004384 0.0"/>
+  <limit upper="0.04" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rig_6" type="fixed">
+  <origin xyz="-0.213998 -0.000938 0.0" rpy="0 0 0"/>
+  <parent link="Paleta_1_1"/>
+  <child link="Pala_IZQ_1"/>
+</joint>
+
+<joint name="Rig_7" type="fixed">
+  <origin xyz="0.213998 0.000938 0.0" rpy="0 0 0"/>
+  <parent link="Paleta_2_1"/>
+  <child link="Pala_DER_1"/>
+</joint>
+
+</robot>

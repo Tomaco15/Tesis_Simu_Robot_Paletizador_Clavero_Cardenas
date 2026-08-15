@@ -1,9 +1,0 @@
-<launch>
-
-<rosparam file="$(find robot_paletizador)/launch/controller.yaml" command="load"/>
-<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="robot_paletizador" args="x_joint_position_controller y_joint_position_controller z_joint_position_controller r_joint_position_controller griper_der_joint_position_controller griper_izq_joint_position_controller joint_state_controller "/>
-<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-  <remap from="/joint_states" to="/robot_paletizador/joint_states"/>
-</node>
-
-</launch>

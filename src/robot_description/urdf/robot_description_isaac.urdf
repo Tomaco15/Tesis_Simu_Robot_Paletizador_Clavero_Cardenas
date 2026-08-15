@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="robot_description">
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000" />
+  </material>
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.45768622613563736 -0.4368264195359295 0.4295018217497949" />
+      <mass value="145.80079322670187" />
+      <inertia ixx="27.178522" ixy="-0.011589" ixz="-0.004434" iyy="35.333395" iyz="0.792709" izz="48.362655" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="x_link_1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.4289999999999972 -0.07702054233668748 0.43855797782578687" />
+      <mass value="33.63690371299227" />
+      <inertia ixx="0.818102" ixy="-1e-06" ixz="0.0" iyy="5.092965" iyz="0.097841" izz="4.355089" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.0285 -0.0 -0.603" />
+      <geometry>
+        <mesh filename="../meshes/x_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0285 -0.0 -0.603" />
+      <geometry>
+        <mesh filename="../meshes/x_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="y_link_1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.04001368587856731 0.02000000000000067 0.04667235883224685" />
+      <mass value="0.29493075116533896" />
+      <inertia ixx="0.000339" ixy="0.0" ixz="-0.0" iyy="0.000375" iyz="0.0" izz="0.000295" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.034 0.12 -1.081" />
+      <geometry>
+        <mesh filename="../meshes/y_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.034 0.12 -1.081" />
+      <geometry>
+        <mesh filename="../meshes/y_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="z_link_1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.040129346895664705 -0.02023568543439727 -0.5125000000000038" />
+      <mass value="22.428174832479133" />
+      <inertia ixx="1.966316" ixy="-5e-05" ixz="-0.0" iyy="1.974575" iyz="0.0" izz="0.013623" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.046 0.1225 -1.171" />
+      <geometry>
+        <mesh filename="../meshes/z_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.046 0.1225 -1.171" />
+      <geometry>
+        <mesh filename="../meshes/z_link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="x_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0.0285 0.0 0.603" />
+    <parent link="base_link" />
+    <child link="x_link_1" />
+    <axis xyz="0.0 -1.0 0.0" />
+    <limit effort="100" lower="0.02" upper="0.94" velocity="100" />
+  </joint>
+  <joint name="y_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="-0.0625 -0.12 0.478" />
+    <parent link="x_link_1" />
+    <child link="y_link_1" />
+    <axis xyz="1.0 -0.0 -0.0" />
+    <limit effort="100" lower="0.065" upper="0.838" velocity="100" />
+  </joint>
+  <joint name="z_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0.08 -0.0025 0.09" />
+    <parent link="y_link_1" />
+    <child link="z_link_1" />
+    <axis xyz="0.0 -0.0 1.0" />
+    <limit effort="100" lower="0.0" upper="0.93" velocity="100" />
+  </joint>
+</robot>
