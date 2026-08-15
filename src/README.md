@@ -29,7 +29,8 @@ robot_description/
 │   ├── materials.xacro
 │   ├── robot.gazebo
 │   ├── robot.trans
-│   └── robot.xacro
+│   ├── robot.xacro
+│   └── robot_description_isaac.urdf
 ├── package.xml
 └── setup.py
 ```
@@ -38,7 +39,19 @@ robot_description/
 
 Los dos lanzadores procesan `urdf/robot.xacro`. Este es el archivo que debe modificarse para cambiar la geometría, las articulaciones o sus límites.
 
-También existen archivos auxiliares llamados `robot_description.xacro`, `robot_description.gazebo`, `robot_description.ros2control` y `robot_description_isaac.urdf`. No son cargados por los lanzadores actuales y no deben confundirse con `robot.xacro`.
+`urdf/robot_description_isaac.urdf` es la exportación pura del modelo completo para NVIDIA Isaac Sim. No es cargada por los lanzadores ROS 2. Los demás archivos llamados `robot_description.xacro`, `robot_description.gazebo` y `robot_description.ros2control` son modelos auxiliares y tampoco forman parte del flujo activo.
+
+### Exportación para Isaac Sim
+
+El archivo `robot_description_isaac.urdf` contiene 14 enlaces, 13 articulaciones y rutas relativas hacia las 14 mallas STL. No contiene macros Xacro, expresiones `$(find ...)`, transmisiones ROS ni etiquetas específicas de Gazebo.
+
+Las rutas tienen el formato:
+
+```xml
+<mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+```
+
+Esto permite importar el modelo sin cargar ROS 2, siempre que `urdf/` y `meshes/` conserven su relación de directorios. El enlace original `cabezal_2.0_v1_1_1` se llama `cabezal_2_0_v1_1_1` únicamente en esta exportación, porque los puntos en nombres de prims no cumplen las convenciones de nombres USD.
 
 ### Articulaciones móviles
 

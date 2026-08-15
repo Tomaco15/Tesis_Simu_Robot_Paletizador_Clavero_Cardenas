@@ -125,7 +125,36 @@ ros2 launch bandeja_description gazebo.launch.py
 
 El lanzador inicia un mundo vacío, publica la descripción y crea la bandeja aproximadamente cinco segundos después.
 
-## 9. Modificar el robot
+## 9. Importar el robot en NVIDIA Isaac Sim
+
+Utiliza el archivo URDF puro:
+
+```text
+src/robot_description/urdf/robot_description_isaac.urdf
+```
+
+No es necesario compilar ni cargar ROS 2 para importarlo directamente desde el archivo:
+
+1. Abre Isaac Sim.
+2. En `Window > Extensions`, busca y habilita **URDF Importer**.
+3. Abre `File > Import` y selecciona `robot_description_isaac.urdf`.
+4. Selecciona **Static Base** para fijar la base del robot.
+5. Elige el directorio donde Isaac Sim guardará el USD.
+6. Pulsa **Import** y revisa posibles advertencias en `Output Log`.
+
+El archivo espera que las mallas estén en `src/robot_description/meshes/`. Si copias el URDF fuera del repositorio, conserva esta disposición:
+
+```text
+robot_description/
+├── meshes/
+│   └── *.stl
+└── urdf/
+    └── robot_description_isaac.urdf
+```
+
+La articulación `Grid_IZQ` conserva la relación `mimic` con `Grid_DER` y un multiplicador de `-1`. Después de importar, verifica en Isaac Sim que ambas paletas se desplacen en sentidos opuestos.
+
+## 10. Modificar el robot
 
 El archivo activo del robot es:
 
@@ -141,7 +170,7 @@ source install/setup.bash
 ros2 launch robot_description display.launch.py
 ```
 
-## 10. Validar el Xacro
+## 11. Validar el Xacro
 
 Genera un URDF y comprueba su estructura:
 
@@ -154,14 +183,14 @@ check_urdf /tmp/robot.urdf
 
 Una validación correcta termina con el mensaje `Successfully Parsed XML`.
 
-## 11. Ejecutar pruebas
+## 12. Ejecutar pruebas
 
 ```bash
 colcon test --packages-select robot_description bandeja_description
 colcon test-result --verbose
 ```
 
-## 12. Compilación limpia
+## 13. Compilación limpia
 
 Si el entorno instalado quedó desactualizado, elimina únicamente los resultados generados y vuelve a compilar:
 
@@ -184,3 +213,4 @@ No ejecutes este comando desde otro directorio: `build`, `install` y `log` deben
 | Robot en Gazebo Classic | `ros2 launch robot_description gazebo.launch.py` |
 | Bandeja en RViz2 | `ros2 launch bandeja_description display.launch.py` |
 | Bandeja en Gazebo Sim | `ros2 launch bandeja_description gazebo.launch.py` |
+| Robot en Isaac Sim | `File > Import > robot_description_isaac.urdf` |

@@ -80,6 +80,23 @@ ros2 launch bandeja_description display.launch.py
 ros2 launch bandeja_description gazebo.launch.py
 ```
 
+### Robot en NVIDIA Isaac Sim
+
+El robot completo también está disponible como URDF puro, sin instrucciones Xacro ni extensiones de Gazebo:
+
+```text
+src/robot_description/urdf/robot_description_isaac.urdf
+```
+
+Para importarlo:
+
+1. Abre Isaac Sim y habilita **URDF Importer** desde `Window > Extensions` si aún no está activo.
+2. Selecciona `File > Import` y abre `robot_description_isaac.urdf`.
+3. Configura la base como **Static Base**, debido a que el robot paletizador está anclado.
+4. Selecciona una carpeta de salida para el archivo USD y pulsa **Import**.
+
+El URDF utiliza rutas relativas `../meshes/*.stl`. Conserva las carpetas `urdf/` y `meshes/` en sus posiciones actuales; si trasladas el modelo a otro equipo, copia ambas carpetas manteniendo esa estructura.
+
 Para una explicación paso a paso, consulta [README_pasos.md](README_pasos.md). La descripción técnica de los paquetes está en [src/README.md](src/README.md).
 
 ## Articulaciones del robot
@@ -135,6 +152,7 @@ Los directorios `build/`, `install/` y `log/` son generados por `colcon` y no co
 - `src/robot_description/urdf/robot.xacro`: modelo completo que cargan los lanzadores del robot.
 - `src/robot_description/urdf/robot.trans`: transmisiones de sus articulaciones.
 - `src/robot_description/urdf/robot.gazebo`: propiedades utilizadas por Gazebo Classic.
+- `src/robot_description/urdf/robot_description_isaac.urdf`: exportación URDF pura para Isaac Sim.
 - `src/robot_description/launch/display.launch.py`: visualización del robot en RViz2.
 - `src/robot_description/launch/gazebo.launch.py`: simulación del robot en Gazebo Classic.
 - `src/bandeja_description/urdf/bandeja.xacro`: modelo de la bandeja.
