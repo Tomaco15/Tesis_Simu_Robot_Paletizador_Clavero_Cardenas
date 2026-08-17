@@ -1,4 +1,5 @@
 <?xml version="1.0" ?>
+<!-- URDF puro del robot completo para NVIDIA Isaac Sim. -->
 <robot name="robot">
   <material name="silver">
     <color rgba="0.700 0.700 0.700 1.000"/>
@@ -305,7 +306,7 @@
     <limit effort="10000" lower="-0.93" upper="0" velocity="1000"/>
   </joint>
   <joint name="Rig_1" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 -0.04 -1.025"/>
+    <origin rpy="0 0 0" xyz="-0.04 -0.04 -1.025"/>
     <parent link="z_link_1"/>
     <child link="cabezal_1"/>
   </joint>

@@ -130,14 +130,14 @@ El lanzador inicia un mundo vacío, publica la descripción y crea la bandeja ap
 Utiliza el archivo URDF puro:
 
 ```text
-src/robot_description/urdf/robot_description_isaac.urdf
+src/robot_description/urdf/robot_isaac.urdf
 ```
 
 No es necesario compilar ni cargar ROS 2 para importarlo directamente desde el archivo:
 
 1. Abre Isaac Sim.
 2. En `Window > Extensions`, busca y habilita **URDF Importer**.
-3. Abre `File > Import` y selecciona `robot_description_isaac.urdf`.
+3. Abre `File > Import` y selecciona `robot_isaac.urdf`.
 4. Selecciona **Static Base** para fijar la base del robot.
 5. Elige el directorio donde Isaac Sim guardará el USD.
 6. Pulsa **Import** y revisa posibles advertencias en `Output Log`.
@@ -149,7 +149,7 @@ robot_description/
 ├── meshes/
 │   └── *.stl
 └── urdf/
-    └── robot_description_isaac.urdf
+    └── robot_isaac.urdf
 ```
 
 La articulación `Grid_IZQ` conserva la relación `mimic` con `Grid_DER` y un multiplicador de `-1`. Después de importar, verifica en Isaac Sim que ambas paletas se desplacen en sentidos opuestos.
@@ -192,25 +192,76 @@ colcon test-result --verbose
 
 ## 13. Compilación limpia
 
-Si el entorno instalado quedó desactualizado, elimina únicamente los resultados generados y vuelve a compilar:
+Realiza una compilación limpia en cualquiera de estas situaciones:
+
+- Se eliminó o renombró un archivo, pero todavía aparece dentro de `install/`.
+- ROS 2 continúa utilizando una versión anterior del Xacro, URDF o `launch`.
+- Una compilación fue interrumpida o terminó con artefactos inconsistentes.
+- Se cambió de rama y ambas ramas tienen estructuras de paquetes diferentes.
+
+### 13.1 Detener procesos
+
+Cierra los lanzamientos que estén usando el workspace. Detén ROS 2, RViz o Gazebo con `Ctrl+C` en sus respectivas terminales.
+
+### 13.2 Confirmar el directorio
+
+Antes de ejecutar `rm -rf`, comprueba la ubicación actual:
 
 ```bash
-rm -rf build install log
+pwd
+ls
+```
+
+Debes estar en la raíz de `Tesis_Simu_Robot_Paletizador_Clavero_Cardenas`. La salida de `ls` debe mostrar al menos:
+
+```text
+src  build  install  log
+```
+
+Si no aparece `src/`, no continúes hasta volver a la raíz correcta.
+
+### 13.3 Eliminar artefactos generados
+
+Ejecuta:
+
+```bash
+rm -rf -- build/ install/ log/
+```
+
+El comando elimina:
+
+- `build/`: archivos intermedios utilizados durante la compilación.
+- `install/`: paquetes instalados y scripts para cargar el workspace.
+- `log/`: registros creados por `colcon`.
+
+No elimina `src/`, los README, las mallas ni el historial de Git.
+
+### 13.4 Recompilar
+
+Vuelve a cargar ROS 2, compila y carga el entorno reconstruido:
+
+```bash
 source /opt/ros/humble/setup.bash
 colcon build --symlink-install
 source install/setup.bash
 ```
 
-No ejecutes este comando desde otro directorio: `build`, `install` y `log` deben ser los directorios generados en la raíz de este workspace.
+### Precauciones
+
+- No ejecutes el comando desde otro directorio.
+- No agregues `/`, `~`, `$HOME` ni comodines al comando.
+- No es necesario utilizar `sudo`.
+- Si alguno de los tres directorios no existe, `rm -rf` continuará sin producir un error.
 
 ## Resumen de comandos
 
 | Acción | Comando |
 | --- | --- |
 | Compilar todo | `colcon build --symlink-install` |
+| Limpiar compilación | `rm -rf -- build/ install/ log/` |
 | Cargar el entorno | `source install/setup.bash` |
 | Robot en RViz2 | `ros2 launch robot_description display.launch.py` |
 | Robot en Gazebo Classic | `ros2 launch robot_description gazebo.launch.py` |
 | Bandeja en RViz2 | `ros2 launch bandeja_description display.launch.py` |
 | Bandeja en Gazebo Sim | `ros2 launch bandeja_description gazebo.launch.py` |
-| Robot en Isaac Sim | `File > Import > robot_description_isaac.urdf` |
+| Robot en Isaac Sim | `File > Import > robot_isaac.urdf` |

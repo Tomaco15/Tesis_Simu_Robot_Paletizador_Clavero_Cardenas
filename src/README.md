@@ -30,7 +30,7 @@ robot_description/
 │   ├── robot.gazebo
 │   ├── robot.trans
 │   ├── robot.xacro
-│   └── robot_description_isaac.urdf
+│   └── robot_isaac.urdf
 ├── package.xml
 └── setup.py
 ```
@@ -39,11 +39,11 @@ robot_description/
 
 Los dos lanzadores procesan `urdf/robot.xacro`. Este es el archivo que debe modificarse para cambiar la geometría, las articulaciones o sus límites.
 
-`urdf/robot_description_isaac.urdf` es la exportación pura del modelo completo para NVIDIA Isaac Sim. No es cargada por los lanzadores ROS 2. Los demás archivos llamados `robot_description.xacro`, `robot_description.gazebo` y `robot_description.ros2control` son modelos auxiliares y tampoco forman parte del flujo activo.
+`urdf/robot_isaac.urdf` es la exportación pura del modelo completo para NVIDIA Isaac Sim. No es cargada por los lanzadores ROS 2.
 
 ### Exportación para Isaac Sim
 
-El archivo `robot_description_isaac.urdf` contiene 14 enlaces, 13 articulaciones y rutas relativas hacia las 14 mallas STL. No contiene macros Xacro, expresiones `$(find ...)`, transmisiones ROS ni etiquetas específicas de Gazebo.
+El archivo `robot_isaac.urdf` contiene 14 enlaces, 13 articulaciones y rutas relativas hacia las 14 mallas STL. No contiene macros Xacro, expresiones `$(find ...)`, transmisiones ROS ni etiquetas específicas de Gazebo.
 
 Las rutas tienen el formato:
 
@@ -153,6 +153,21 @@ colcon build --symlink-install \
   --packages-select robot_description bandeja_description
 source install/setup.bash
 ```
+
+### Limpiar una compilación anterior
+
+Cuando se eliminan o renombran archivos, `install/` puede conservar enlaces simbólicos antiguos. Desde la raíz del workspace, verifica primero que exista `src/` y elimina únicamente los artefactos generados:
+
+```bash
+pwd
+ls
+rm -rf -- build/ install/ log/
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install
+source install/setup.bash
+```
+
+`build/`, `install/` y `log/` se pueden reconstruir; `src/` contiene el código y nunca debe incluirse en el comando de limpieza. Consulta la sección **Compilación limpia** de [`../README_pasos.md`](../README_pasos.md) para conocer todas las precauciones.
 
 ## Validación de cambios
 

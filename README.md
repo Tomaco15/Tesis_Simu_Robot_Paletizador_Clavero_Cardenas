@@ -85,13 +85,13 @@ ros2 launch bandeja_description gazebo.launch.py
 El robot completo también está disponible como URDF puro, sin instrucciones Xacro ni extensiones de Gazebo:
 
 ```text
-src/robot_description/urdf/robot_description_isaac.urdf
+src/robot_description/urdf/robot_isaac.urdf
 ```
 
 Para importarlo:
 
 1. Abre Isaac Sim y habilita **URDF Importer** desde `Window > Extensions` si aún no está activo.
-2. Selecciona `File > Import` y abre `robot_description_isaac.urdf`.
+2. Selecciona `File > Import` y abre `robot_isaac.urdf`.
 3. Configura la base como **Static Base**, debido a que el robot paletizador está anclado.
 4. Selecciona una carpeta de salida para el archivo USD y pulsa **Import**.
 
@@ -152,7 +152,7 @@ Los directorios `build/`, `install/` y `log/` son generados por `colcon` y no co
 - `src/robot_description/urdf/robot.xacro`: modelo completo que cargan los lanzadores del robot.
 - `src/robot_description/urdf/robot.trans`: transmisiones de sus articulaciones.
 - `src/robot_description/urdf/robot.gazebo`: propiedades utilizadas por Gazebo Classic.
-- `src/robot_description/urdf/robot_description_isaac.urdf`: exportación URDF pura para Isaac Sim.
+- `src/robot_description/urdf/robot_isaac.urdf`: exportación URDF pura para Isaac Sim.
 - `src/robot_description/launch/display.launch.py`: visualización del robot en RViz2.
 - `src/robot_description/launch/gazebo.launch.py`: simulación del robot en Gazebo Classic.
 - `src/bandeja_description/urdf/bandeja.xacro`: modelo de la bandeja.
@@ -182,6 +182,33 @@ Para ejecutar las pruebas de los paquetes:
 colcon test --packages-select robot_description bandeja_description
 colcon test-result --verbose
 ```
+
+## Compilación limpia
+
+Los directorios `build/`, `install/` y `log/` son artefactos generados por `colcon`. Se pueden eliminar cuando una compilación queda inconsistente, cuando se renombran o borran archivos, o cuando `install/` conserva enlaces antiguos.
+
+Primero detén los procesos de ROS 2, RViz y Gazebo que utilicen el workspace. Después confirma que la terminal esté en la raíz correcta:
+
+```bash
+pwd
+ls
+```
+
+La salida de `ls` debe incluir `src/`. Si también aparecen `build/`, `install/` y `log/`, elimina solamente esos tres directorios:
+
+```bash
+rm -rf -- build/ install/ log/
+```
+
+Este comando no elimina el código fuente de `src/`, pero borra toda la compilación local y el entorno instalado. A continuación, reconstruye el workspace:
+
+```bash
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install
+source install/setup.bash
+```
+
+No ejecutes `rm -rf` desde otro directorio ni agregues rutas como `/`, `~` o variables sin verificar. No es necesario utilizar `sudo` para limpiar un workspace creado por el usuario.
 
 ## Problemas frecuentes
 
