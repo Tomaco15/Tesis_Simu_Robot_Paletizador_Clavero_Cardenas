@@ -18,7 +18,148 @@ El workspace contiene dos paquetes:
 
 El objetivo general de la tesis también contempla percepción mediante visión artificial y automatización del paletizado. Este repositorio contiene actualmente la descripción y simulación de los modelos; el código de percepción no forma parte todavía de este workspace.
 
-## Requisitos
+## Primeros pasos
+
+Este proyecto está preparado para **Ubuntu 22.04 LTS (Jammy)** porque utiliza **ROS 2 Humble**. No se recomienda ejecutar estos pasos en Ubuntu 20.04, Ubuntu 24.04 ni directamente en Windows, ya que las versiones de ROS y sus paquetes cambian según el sistema operativo.
+
+Se puede utilizar una instalación nativa de Ubuntu 22.04. Si el equipo tiene Windows, se recomienda **WSL 2 con Ubuntu 22.04**, porque permite trabajar en un entorno Linux sin reemplazar Windows. WSL 2 también puede mostrar aplicaciones gráficas como RViz y Gazebo mediante WSLg; para ello se recomienda Windows 11 con los controladores de la tarjeta gráfica actualizados.
+
+### 1. Instalar Ubuntu 22.04 mediante WSL 2 en Windows
+
+Si ya utilizas Ubuntu 22.04 de forma nativa, omite esta sección y continúa con la instalación de ROS 2.
+
+En Windows, abre **PowerShell como administrador** y consulta las distribuciones disponibles:
+
+```powershell
+wsl --list --online
+```
+
+Instala WSL 2 junto con Ubuntu 22.04:
+
+```powershell
+wsl --install -d Ubuntu-22.04
+```
+
+Reinicia Windows si el instalador lo solicita. Después del reinicio, actualiza WSL desde PowerShell:
+
+```powershell
+wsl --update
+```
+
+Abre **Ubuntu 22.04** desde el menú Inicio y crea el nombre de usuario y la contraseña de Linux cuando aparezca el asistente. La contraseña no muestra caracteres mientras se escribe; es el comportamiento normal de la terminal.
+
+Para comprobar desde PowerShell que la distribución utiliza WSL 2, ejecuta:
+
+```powershell
+wsl --list --verbose
+```
+
+La columna `VERSION` debe indicar `2`. Si indica `1`, conviértela con:
+
+```powershell
+wsl --set-version Ubuntu-22.04 2
+```
+
+A partir de este punto, todos los comandos de instalación se ejecutan en la **terminal de Ubuntu**, no en PowerShell. Se recomienda guardar el repositorio dentro del sistema de archivos de Linux, por ejemplo en `~/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas`, y no dentro de `/mnt/c/`.
+
+### 2. Comprobar la versión de Ubuntu
+
+En la terminal de Ubuntu, ejecuta:
+
+```bash
+lsb_release -ds
+```
+
+La salida debe incluir `Ubuntu 22.04`. Actualiza el sistema antes de instalar ROS 2:
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+### 3. Instalar ROS 2 Humble y las herramientas necesarias
+
+Habilita el repositorio `universe` e instala el repositorio oficial de paquetes de ROS 2:
+
+```bash
+sudo apt install -y software-properties-common curl
+sudo add-apt-repository -y universe
+
+export ROS_APT_SOURCE_VERSION=$(curl -s \
+  https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest \
+  | grep -F "tag_name" | awk -F'"' '{print $4}')
+
+curl -L -o /tmp/ros2-apt-source.deb \
+  "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+
+sudo dpkg -i /tmp/ros2-apt-source.deb
+sudo apt update
+sudo apt upgrade -y
+```
+
+Instala ROS 2 Humble Desktop, las herramientas de compilación y los dos entornos de Gazebo utilizados por el proyecto:
+
+```bash
+sudo apt install -y \
+  git \
+  python3-pip \
+  ros-dev-tools \
+  ros-humble-desktop \
+  ros-humble-gazebo-ros-pkgs \
+  ros-humble-ros-gz
+```
+
+Inicializa `rosdep`. El primer comando se ejecuta solamente una vez por instalación; si informa que ya fue inicializado, continúa con `rosdep update`:
+
+```bash
+sudo rosdep init
+rosdep update
+```
+
+Carga ROS 2 en la terminal actual:
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+Comprueba la instalación:
+
+```bash
+ros2 --help
+colcon --help
+```
+
+### 4. Descargar y compilar el proyecto
+
+Clona el repositorio dentro de la carpeta personal de Ubuntu:
+
+```bash
+cd ~
+git clone https://github.com/Tomaco15/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas.git
+cd Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
+```
+
+Instala las dependencias y compila el workspace:
+
+```bash
+python3 -m pip install -r requirements.txt
+source /opt/ros/humble/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
+source install/setup.bash
+```
+
+Si la compilación finaliza sin errores, el proyecto está listo para utilizarse. En cada terminal nueva, entra en la raíz del repositorio y carga ambos entornos antes de ejecutar un lanzamiento:
+
+```bash
+cd ~/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+```
+
+Documentación oficial: [instalación de WSL](https://learn.microsoft.com/windows/wsl/install), [aplicaciones gráficas en WSL](https://learn.microsoft.com/windows/wsl/tutorials/gui-apps) e [instalación de ROS 2 Humble en Ubuntu](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html).
+
+## Requisitos instalados por los pasos anteriores
 
 - Ubuntu 22.04
 - ROS 2 Humble
@@ -29,22 +170,6 @@ El objetivo general de la tesis también contempla percepción mediante visión 
 - `joint_state_publisher` y `joint_state_publisher_gui`
 - Gazebo Classic con `gazebo_ros` para el robot
 - Gazebo Sim con `ros_gz_sim` y `ros_gz_bridge` para la bandeja
-
-## Instalación
-
-```bash
-git clone git@github.com:Tomaco15/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas.git
-cd Tesis_Simu_Robot_Paletizador_Clavero_Cardenas
-sudo apt update
-sudo apt install python3-pip
-python3 -m pip install -r requirements.txt
-source /opt/ros/humble/setup.bash
-rosdep install --from-paths src --ignore-src -r -y
-colcon build --symlink-install
-source install/setup.bash
-```
-
-El último comando debe ejecutarse en cada terminal nueva desde la raíz del workspace.
 
 ## Ejecución rápida
 
