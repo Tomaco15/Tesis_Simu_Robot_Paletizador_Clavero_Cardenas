@@ -1,9 +1,18 @@
 <?xml version="1.0" ?>
 <robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<xacro:arg name="include_transmissions" default="true"/>
+<xacro:arg name="include_gazebo" default="true"/>
+<xacro:arg name="mesh_directory" default="file://$(find robot_description)/meshes"/>
+<xacro:property name="mesh_directory" value="$(arg mesh_directory)"/>
+
 <xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find robot_description)/urdf/robot.trans" />
-<xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+<xacro:if value="$(arg include_transmissions)">
+  <xacro:include filename="$(find robot_description)/urdf/robot.trans" />
+</xacro:if>
+<xacro:if value="$(arg include_gazebo)">
+  <xacro:include filename="$(find robot_description)/urdf/robot.gazebo" />
+</xacro:if>
 <link name="base_link">
   <inertial>
     <origin xyz="0.45768622613563736 -0.4368264195359295 0.4295018217497949" rpy="0 0 0"/>
@@ -13,14 +22,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -34,14 +43,14 @@
   <visual>
     <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -55,14 +64,14 @@
   <visual>
     <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -76,14 +85,14 @@
   <visual>
     <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -97,14 +106,14 @@
   <visual>
     <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/cabezal_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/cabezal_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -118,19 +127,19 @@
   <visual>
     <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="cabezal_2.0_v1_1_1">
+<link name="cabezal_2_0_v1_1_1">
   <inertial>
     <origin xyz="-1.9836844046515478e-05 0.00327884619901872 -0.05001506846643826" rpy="0 0 0"/>
     <mass value="5.768314857333685"/>
@@ -139,14 +148,14 @@
   <visual>
     <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/cabezal_2_0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/cabezal_2_0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -160,14 +169,14 @@
   <visual>
     <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -176,19 +185,19 @@
   <inertial>
     <origin xyz="1.3515116238912994e-05 -0.0031874939270762903 -1.5161483180037294e-15" rpy="0 0 0"/>
     <mass value="0.005099610361289279"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+    <inertia ixx="1.253100175e-07" iyy="2.404369626e-07" izz="1.253077337e-07" ixy="-5.047754088e-10" iyz="-7.092025118e-16" ixz="4.671074672e-16"/>
   </inertial>
   <visual>
     <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -202,14 +211,14 @@
   <visual>
     <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -223,14 +232,14 @@
   <visual>
     <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -244,14 +253,14 @@
   <visual>
     <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -265,14 +274,14 @@
   <visual>
     <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -286,14 +295,14 @@
   <visual>
     <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -338,12 +347,12 @@
 <joint name="Rig_2" type="fixed">
   <origin xyz="0.0 0.0 -0.0495" rpy="0 0 0"/>
   <parent link="Externo1_v1_1"/>
-  <child link="cabezal_2.0_v1_1_1"/>
+  <child link="cabezal_2_0_v1_1_1"/>
 </joint>
 
 <joint name="Rig_3" type="fixed">
   <origin xyz="0.00491 0.020522 -0.1155" rpy="0 0 0"/>
-  <parent link="cabezal_2.0_v1_1_1"/>
+  <parent link="cabezal_2_0_v1_1_1"/>
   <child link="mg996R_v2_v1_1_1"/>
 </joint>
 

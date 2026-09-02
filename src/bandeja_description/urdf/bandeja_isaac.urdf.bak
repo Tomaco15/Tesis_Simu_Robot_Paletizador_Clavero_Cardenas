@@ -12,14 +12,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="file:///home/cristian/Desktop/Paletizador/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas/src/bandeja_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="silver" />
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="file:///home/cristian/Desktop/Paletizador/Tesis_Simu_Robot_Paletizador_Clavero_Cardenas/src/bandeja_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>

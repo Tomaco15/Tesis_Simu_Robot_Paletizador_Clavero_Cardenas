@@ -222,6 +222,16 @@ Para importarlo:
 
 El URDF utiliza rutas relativas `../meshes/*.stl`. Conserva las carpetas `urdf/` y `meshes/` en sus posiciones actuales; si trasladas el modelo a otro equipo, copia ambas carpetas manteniendo esa estructura.
 
+Para regenerar esta exportación desde el Xacro canónico, ejecuta desde la raíz del workspace:
+
+```bash
+xacro src/robot_description/urdf/robot.xacro \
+  include_transmissions:=false include_gazebo:=false \
+  mesh_directory:=../meshes \
+  -o src/robot_description/urdf/robot_isaac.urdf
+check_urdf src/robot_description/urdf/robot_isaac.urdf
+```
+
 Para una explicación paso a paso, consulta [README_pasos.md](README_pasos.md). La descripción técnica de los paquetes está en [src/README.md](src/README.md).
 
 ## Articulaciones del robot

@@ -154,6 +154,16 @@ robot_description/
 
 La articulación `Grid_IZQ` conserva la relación `mimic` con `Grid_DER` y un multiplicador de `-1`. Después de importar, verifica en Isaac Sim que ambas paletas se desplacen en sentidos opuestos.
 
+Si modificas `robot.xacro`, vuelve a generar el URDF para Isaac Sim desde la raíz del workspace:
+
+```bash
+xacro src/robot_description/urdf/robot.xacro \
+  include_transmissions:=false include_gazebo:=false \
+  mesh_directory:=../meshes \
+  -o src/robot_description/urdf/robot_isaac.urdf
+check_urdf src/robot_description/urdf/robot_isaac.urdf
+```
+
 ## 10. Modificar el robot
 
 El archivo activo del robot es:

@@ -49,7 +49,7 @@
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="cabezal_2.0_v1_1_1">
+<gazebo reference="cabezal_2_0_v1_1_1">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
