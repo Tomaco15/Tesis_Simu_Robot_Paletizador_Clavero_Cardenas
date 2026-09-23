@@ -1,0 +1,418 @@
+<?xml version="1.0" ?>
+<robot name="prueba_1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find prueba_1_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find prueba_1_description)/urdf/prueba_1.trans" />
+<xacro:include filename="$(find prueba_1_description)/urdf/prueba_1.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.45768622613563736 -0.4368264195359295 0.4295018217497948" rpy="0 0 0"/>
+    <mass value="50.148043530203196"/>
+    <inertia ixx="9.348027" iyy="12.152888" izz="16.634289" ixy="-0.003986" iyz="0.272652" ixz="-0.001525"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="x_link_1">
+  <inertial>
+    <origin xyz="0.42900000000000327 -0.07702054233668737 0.4385579778257891" rpy="0 0 0"/>
+    <mass value="11.56938089491454"/>
+    <inertia ixx="0.281385" iyy="1.751721" izz="1.497929" ixy="-0.0" iyz="0.033652" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0285 -0.0 -0.603" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="y_link_1">
+  <inertial>
+    <origin xyz="0.04000698904160172 0.007766885164565626 0.04585403252661013" rpy="0 0 0"/>
+    <mass value="0.5775307511653394"/>
+    <inertia ixx="0.000621" iyy="0.000717" izz="0.000536" ixy="-0.0" iyz="-6e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034 0.12 -1.081" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="z_link_1">
+  <inertial>
+    <origin xyz="-0.04012934689566563 -0.020235685434398354 -0.5125000000000013" rpy="0 0 0"/>
+    <mass value="7.714149305438682"/>
+    <inertia ixx="0.676312" iyy="0.679153" izz="0.004686" ixy="-1.7e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.1275 -1.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabezal_1">
+  <inertial>
+    <origin xyz="1.2055562844962009e-05 -0.07470375860725395 0.07435169471155806" rpy="0 0 0"/>
+    <mass value="0.735233698589477"/>
+    <inertia ixx="0.002962" iyy="0.001161" izz="0.002526" ixy="0.0" iyz="0.000677" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.1675 -0.146" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/cabezal_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Externo1_v1_1">
+  <inertial>
+    <origin xyz="-1.1310397063368782e-15 1.6653345369377348e-16 -0.035297157702443877" rpy="0 0 0"/>
+    <mass value="0.4348559362165023"/>
+    <inertia ixx="0.000618" iyy="0.000617" izz="0.001131" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.2175 -0.1605" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Externo1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cabezal_2.0_v1_1_1">
+  <inertial>
+    <origin xyz="-1.9836844046515478e-05 0.00327884619901872 -0.050015068466438266" rpy="0 0 0"/>
+    <mass value="0.808298897205994"/>
+    <inertia ixx="0.002837" iyy="0.002812" izz="0.001617" ixy="0.0" iyz="8.5e-05" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046 0.2175 -0.111" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/cabezal_2.0_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mg996R_v2_v1_1_1">
+  <inertial>
+    <origin xyz="-0.005038686876243849 0.008828221063192837 0.024744332717065876" rpy="0 0 0"/>
+    <mass value="0.24706045427040543"/>
+    <inertia ixx="6.5e-05" iyy="4.3e-05" izz="3.8e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.05091 0.196978 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/mg996R_v2_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_horn_v2_v1_1">
+  <inertial>
+    <origin xyz="1.3515116238912994e-05 -0.0031874939270762903 -1.5161483180037294e-15" rpy="0 0 0"/>
+    <mass value="0.005099610361289279"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045961 0.2085 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Servo_horn_v2_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Externo3_v1_1_1">
+  <inertial>
+    <origin xyz="5.512835039023223e-06 -0.0011958164319734732 -1.2455314557513475e-15" rpy="0 0 0"/>
+    <mass value="0.07977197198617901"/>
+    <inertia ixx="5e-06" iyy="3e-05" izz="2.6e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04598 0.213 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Externo3_v1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paleta_1_1">
+  <inertial>
+    <origin xyz="-0.1070194860087463 0.004431382652601179 2.2922718924400787e-08" rpy="0 0 0"/>
+    <mass value="0.05350927460261899"/>
+    <inertia ixx="3e-06" iyy="0.000258" izz="0.000259" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.021002 0.21811 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Paleta_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Paleta_2_1">
+  <inertial>
+    <origin xyz="0.10697797649072537 0.005368877291746704 2.292271928522327e-08" rpy="0 0 0"/>
+    <mass value="0.05350927460261899"/>
+    <inertia ixx="3e-06" iyy="0.000258" izz="0.000259" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.071002 0.21789 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Paleta_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pala_IZQ_1">
+  <inertial>
+    <origin xyz="-0.02679441920888964 0.003882677544928881 -0.019023121817095687" rpy="0 0 0"/>
+    <mass value="0.1680843406216635"/>
+    <inertia ixx="0.000494" iyy="0.000488" izz="4.1e-05" ixy="0.0" iyz="-0.0" ixz="-2.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.192996 0.219048 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Pala_IZQ_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pala_DER_1">
+  <inertial>
+    <origin xyz="0.02675972806314808 0.004117255172863543 -0.019023121817094694" rpy="0 0 0"/>
+    <mass value="0.1680843406216635"/>
+    <inertia ixx="0.000494" iyy="0.000488" izz="4.1e-05" ixy="0.0" iyz="0.0" ixz="2.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.285 0.216952 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/Pala_DER_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pasadores_visuales_1">
+  <inertial>
+    <origin xyz="0.3199971763280257 0.0014025605651287743 -0.04800000000000133" rpy="0 0 0"/>
+    <mass value="0.28410050684942656"/>
+    <inertia ixx="0.000656" iyy="0.010352" izz="0.009698" ixy="-4.3e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000963 0.217697 -0.078" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/pasadores_visuales_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000963 0.217697 -0.078" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find prueba_1_description)/meshes/pasadores_visuales_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="x_joint" type="prismatic">
+  <origin xyz="0.0285 0.0 0.603" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="x_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.94" lower="0.02" effort="100" velocity="100"/>
+</joint>
+
+<joint name="y_joint" type="prismatic">
+  <origin xyz="-0.0625 -0.12 0.478" rpy="0 0 0"/>
+  <parent link="x_link_1"/>
+  <child link="y_link_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+  <limit upper="0.838" lower="0.065" effort="100" velocity="100"/>
+</joint>
+
+<joint name="z_joint" type="prismatic">
+  <origin xyz="0.08 -0.0075 0.09" rpy="0 0 0"/>
+  <parent link="y_link_1"/>
+  <child link="z_link_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+  <limit upper="0" lower="-0.93" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rig_1" type="fixed">
+  <origin xyz="-0.04 -0.04 -1.025" rpy="0 0 0"/>
+  <parent link="z_link_1"/>
+  <child link="cabezal_1"/>
+</joint>
+
+<joint name="R_joint" type="continuous">
+  <origin xyz="0.0 -0.05 0.0145" rpy="0 0 0"/>
+  <parent link="cabezal_1"/>
+  <child link="Externo1_v1_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Rig_2" type="fixed">
+  <origin xyz="0.0 0.0 -0.0495" rpy="0 0 0"/>
+  <parent link="Externo1_v1_1"/>
+  <child link="cabezal_2.0_v1_1_1"/>
+</joint>
+
+<joint name="Rig_3" type="fixed">
+  <origin xyz="0.00491 0.020522 -0.1155" rpy="0 0 0"/>
+  <parent link="cabezal_2.0_v1_1_1"/>
+  <child link="mg996R_v2_v1_1_1"/>
+</joint>
+
+<joint name="Rig_4" type="fixed">
+  <origin xyz="-0.004949 -0.011522 0.0345" rpy="0 0 0"/>
+  <parent link="mg996R_v2_v1_1_1"/>
+  <child link="Servo_horn_v2_v1_1"/>
+</joint>
+
+<joint name="Rig_5" type="fixed">
+  <origin xyz="1.9e-05 -0.0045 0.0" rpy="0 0 0"/>
+  <parent link="Servo_horn_v2_v1_1"/>
+  <child link="Externo3_v1_1_1"/>
+</joint>
+
+<joint name="Grid_IZQ" type="prismatic">
+  <origin xyz="-0.024978 -0.00511 0.0" rpy="0 0 0"/>
+  <parent link="Externo3_v1_1_1"/>
+  <child link="Paleta_1_1"/>
+  <axis xyz="-0.99999 -0.004384 0.0"/>
+  <mimic joint="Grid_DER" multiplier="-1" offset="0"/>
+  <limit upper="0.0" lower="-0.040" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Grid_DER" type="prismatic">
+  <origin xyz="0.025022 -0.00489 0.0" rpy="0 0 0"/>
+  <parent link="Externo3_v1_1_1"/>
+  <child link="Paleta_2_1"/>
+  <axis xyz="-0.99999 -0.004384 0.0"/>
+  <limit upper="0.04" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rig_6" type="fixed">
+  <origin xyz="-0.213998 -0.000938 0.0" rpy="0 0 0"/>
+  <parent link="Paleta_1_1"/>
+  <child link="Pala_IZQ_1"/>
+</joint>
+
+<joint name="Rig_7" type="fixed">
+  <origin xyz="0.213998 0.000938 0.0" rpy="0 0 0"/>
+  <parent link="Paleta_2_1"/>
+  <child link="Pala_DER_1"/>
+</joint>
+
+<joint name="Rígida 28" type="fixed">
+  <origin xyz="-0.319997 -0.000197 -0.033" rpy="0 0 0"/>
+  <parent link="cabezal_2.0_v1_1_1"/>
+  <child link="pasadores_visuales_1"/>
+</joint>
+
+</robot>
