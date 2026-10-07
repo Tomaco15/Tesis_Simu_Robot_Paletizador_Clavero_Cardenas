@@ -45,16 +45,7 @@
   </actuator>
 </transmission>
 
-<transmission name="grid_izq_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="grid_izq">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="grid_izq_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+<!-- grid_izq es pasiva: sigue a grid_der mediante mimic en el Xacro. -->
 
 <transmission name="grid_der_tran">
   <type>transmission_interface/SimpleTransmission</type>

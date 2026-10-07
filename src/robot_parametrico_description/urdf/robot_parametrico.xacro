@@ -1,9 +1,14 @@
 <?xml version="1.0" ?>
 <robot name="robot_parametrico" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find robot_parametrico_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find robot_parametrico_description)/urdf/robot_parametrico.trans" />
-<xacro:include filename="$(find robot_parametrico_description)/urdf/robot_parametrico.gazebo" />
+<!-- ROS usa package://; la exportacion para Isaac usa ../meshes/. -->
+<xacro:arg name="mesh_prefix" default="package://robot_parametrico_description/meshes/" />
+<xacro:arg name="include_ros_extensions" default="true" />
+<xacro:include filename="materials.xacro" />
+<xacro:if value="$(arg include_ros_extensions)">
+  <xacro:include filename="robot_parametrico.trans" />
+  <xacro:include filename="robot_parametrico.gazebo" />
+</xacro:if>
 <link name="base_link">
   <inertial>
     <origin xyz="0.43921503377845217 0.427408676475863 0.362078018202456" rpy="0 0 0"/>
@@ -13,14 +18,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -34,14 +39,14 @@
   <visual>
     <origin xyz="0.04 0.0 -0.6269" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.04 0.0 -0.6269" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/x_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)x_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -55,14 +60,14 @@
   <visual>
     <origin xyz="-0.0895 0.063318 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.0895 0.063318 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/y_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)y_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -74,16 +79,16 @@
     <inertia ixx="0.576368" iyy="0.5728" izz="0.005452" ixy="1e-06" iyz="-0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.0945 0.063318 -1.1484" rpy="0 0 0"/>
+    <origin xyz="-0.0945 0.073318 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.0945 0.063318 -1.1484" rpy="0 0 0"/>
+    <origin xyz="-0.0945 0.073318 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/z_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)z_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -95,16 +100,16 @@
     <inertia ixx="0.001161" iyy="0.002962" izz="0.002526" ixy="-0.0" iyz="-0.0" ixz="-0.000677"/>
   </inertial>
   <visual>
-    <origin xyz="-0.1345 0.024818 -1.1484" rpy="0 0 0"/>
+    <origin xyz="-0.1345 0.034818 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_cabezal1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_cabezal1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.1345 0.024818 -1.1484" rpy="0 0 0"/>
+    <origin xyz="-0.1345 0.034818 -1.1484" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_cabezal1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_cabezal1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -118,14 +123,14 @@
   <visual>
     <origin xyz="-0.1845 0.024818 -1.1709" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Externo1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Externo1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.1845 0.024818 -1.1709" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Externo1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Externo1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -139,14 +144,14 @@
   <visual>
     <origin xyz="-0.1845 0.024818 -1.1509" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_cabezal_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_cabezal_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.1845 0.024818 -1.1509" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_cabezal_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_cabezal_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -160,14 +165,14 @@
   <visual>
     <origin xyz="-0.164022 0.029908 -1.0354" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_mg996R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_mg996R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.164022 0.029908 -1.0354" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_mg996R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_mg996R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -176,19 +181,21 @@
   <inertial>
     <origin xyz="0.00031264063733987824 1.8085460379568818e-06 0.0" rpy="0 0 0"/>
     <mass value="0.005099610361289279"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    <!-- Estimacion por integracion volumetrica del STL (densidad uniforme),
+         escalada a la masa CAD de 0.005099610361289279 kg; unidades kg*m^2. -->
+    <inertia ixx="2.40436962e-7" iyy="1.25310030e-7" izz="1.25307736e-7" ixy="5.04782604e-10" iyz="9.16374540e-14" ixz="-1.93631163e-14"/>
   </inertial>
   <visual>
     <origin xyz="-0.176 0.024856 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Servo_horn__1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Servo_horn__1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.176 0.024856 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Servo_horn__1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Servo_horn__1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -202,14 +209,14 @@
   <visual>
     <origin xyz="-0.1795 0.02484 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Externo3_v1_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Externo3_v1_1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.1795 0.02484 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Externo3_v1_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Externo3_v1_1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -223,14 +230,14 @@
   <visual>
     <origin xyz="-0.18461 0.049818 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Paleta_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Paleta_1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.18461 0.049818 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Paleta_1_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Paleta_1_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -244,14 +251,14 @@
   <visual>
     <origin xyz="-0.17639 -0.000146 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Paleta_2_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Paleta_2_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.17639 -0.000146 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Paleta_2_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Paleta_2_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -265,14 +272,14 @@
   <visual>
     <origin xyz="-0.185548 0.263816 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Pala_IZQ_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Pala_IZQ_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.185548 0.263816 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Pala_IZQ_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Pala_IZQ_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -286,14 +293,14 @@
   <visual>
     <origin xyz="-0.165652 -0.214101 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Pala_DER_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Pala_DER_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.165652 -0.214101 -1.0699" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/robot_Pala_DER_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)robot_Pala_DER_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -307,14 +314,14 @@
   <visual>
     <origin xyz="-0.181728 0.304833 -1.1179" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/soporte_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)soporte_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.181728 0.304833 -1.1179" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/soporte_1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)soporte_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -328,14 +335,14 @@
   <visual>
     <origin xyz="-0.181728 0.304833 -1.0219" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/soporte_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)soporte_2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.181728 0.304833 -1.0219" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_parametrico_description)/meshes/soporte_2_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="$(arg mesh_prefix)soporte_2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -408,6 +415,8 @@
   <child link="robot_Paleta_1_v1_1"/>
   <axis xyz="-0.004384 0.99999 -0.0"/>
   <limit upper="0.04" lower="-0.04" effort="100" velocity="100"/>
+  <!-- Un solo mando: grid_der. Ambos ejes tienen el mismo sentido. -->
+  <mimic joint="grid_der" multiplier="-1" offset="0"/>
 </joint>
 
 <joint name="grid_der" type="prismatic">
@@ -431,13 +440,13 @@
 </joint>
 
 <joint name="rigida_8" type="fixed">
-  <origin xyz="-0.00382 -0.041017 0.048" rpy="0 0 0"/>
+  <origin xyz="-0.00382 -0.081017 0.048" rpy="0 0 0"/>
   <parent link="robot_Pala_IZQ_v1_1"/>
   <child link="soporte_1_1"/>
 </joint>
 
 <joint name="rigida_9" type="fixed">
-  <origin xyz="-0.00382 -0.041017 -0.048" rpy="0 0 0"/>
+  <origin xyz="-0.00382 -0.081017 -0.048" rpy="0 0 0"/>
   <parent link="robot_Pala_IZQ_v1_1"/>
   <child link="soporte_2_1"/>
 </joint>

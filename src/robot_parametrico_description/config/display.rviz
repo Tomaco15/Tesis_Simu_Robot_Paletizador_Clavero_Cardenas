@@ -51,7 +51,7 @@ Visualization Manager:
       Description Source: Topic
       Description Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /robot_description
@@ -62,51 +62,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        back_motor_left_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        back_motor_right_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        back_wheel_left_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        back_wheel_right_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_motor_left_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_motor_right_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_wheel_left_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_wheel_right_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -117,43 +72,12 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        back_motor_left_2:
-          Value: true
-        back_motor_right_2:
-          Value: true
-        back_wheel_left_2:
-          Value: true
-        back_wheel_right_2:
-          Value: true
-        base_link:
-          Value: true
-        front_motor_left_2:
-          Value: true
-        front_motor_right_2:
-          Value: true
-        front_wheel_left_2:
-          Value: true
-        front_wheel_right_2:
-          Value: true
-      Marker Scale: 0.5
+      Marker Scale: 0.1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
-      Tree:
-        base_link:
-          back_motor_right_2:
-            back_wheel_right_2:
-              {}
-          back_wheel_left_2:
-            back_motor_left_2:
-              {}
-          front_motor_left_2:
-            front_wheel_left_2:
-              {}
-          front_motor_right_2:
-            front_wheel_right_2:
-              {}
+      Tree: {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -199,16 +123,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.8402727246284485
+      Distance: 3.5
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 0.5
+        Y: 0.4
+        Z: 1.0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
