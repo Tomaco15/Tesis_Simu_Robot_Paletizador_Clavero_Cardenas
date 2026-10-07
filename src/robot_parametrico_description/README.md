@@ -6,6 +6,12 @@ La fuente del modelo es `urdf/robot_parametrico.xacro`. La exportación
 masas, límites y mallas del Xacro, incluidas las correcciones geométricas
 existentes en el archivo.
 
+El origen de `grid_der` es `0.00511 0.024986 0.0 m`, relativo a
+`robot_Externo3_v1_1_v1_1`. Los soportes `soporte_1_1` y `soporte_2_1` están
+fijados directamente a `robot_cabezal_1` mediante `rigida_8` y `rigida_9`,
+con orígenes `0.000197 -0.32 -0.033 m` y `0.000197 -0.32 -0.129 m`,
+respectivamente. Así, acompañan al cabezal al abrir o cerrar la pinza.
+
 ## Un solo control de la pinza
 
 Se comanda **`grid_der`**. La articulación `grid_izq` sigue su posición mediante:

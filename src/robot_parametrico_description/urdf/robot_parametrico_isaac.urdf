@@ -392,7 +392,7 @@
     <mimic joint="grid_der" multiplier="-1" offset="0"/>
   </joint>
   <joint name="grid_der" type="prismatic">
-    <origin rpy="0 0 0" xyz="-0.00311 0.024986 0.0"/>
+    <origin rpy="0 0 0" xyz="0.00511 0.024986 0.0"/>
     <parent link="robot_Externo3_v1_1_v1_1"/>
     <child link="robot_Paleta_2_v1_1"/>
     <axis xyz="-0.004384 0.99999 -0.0"/>
@@ -409,13 +409,13 @@
     <child link="robot_Pala_DER_v1_1"/>
   </joint>
   <joint name="rigida_8" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.00382 -0.081017 0.048"/>
-    <parent link="robot_Pala_IZQ_v1_1"/>
+    <origin rpy="0 0 0" xyz="0.000197 -0.32 -0.033"/>
+    <parent link="robot_cabezal_1"/>
     <child link="soporte_1_1"/>
   </joint>
   <joint name="rigida_9" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.00382 -0.081017 -0.048"/>
-    <parent link="robot_Pala_IZQ_v1_1"/>
+    <origin rpy="0 0 0" xyz="0.000197 -0.32 -0.129"/>
+    <parent link="robot_cabezal_1"/>
     <child link="soporte_2_1"/>
   </joint>
 </robot>
