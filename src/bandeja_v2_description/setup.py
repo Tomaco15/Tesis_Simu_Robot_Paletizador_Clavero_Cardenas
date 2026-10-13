@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'bandeja_description'
+package_name = 'bandeja_v2_description'
 
 setup(
     name=package_name,

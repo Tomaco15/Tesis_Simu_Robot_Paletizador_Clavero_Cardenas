@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
-<robot name="bandeja" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="bandeja_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:arg name="include_ros_extensions" default="true"/>
-<xacro:arg name="mesh_directory" default="package://bandeja_description/meshes"/>
+<xacro:arg name="mesh_directory" default="package://bandeja_v2_description/meshes"/>
 <xacro:property name="mesh_directory" value="$(arg mesh_directory)"/>
 
 <xacro:include filename="materials.xacro" />
 <xacro:if value="$(arg include_ros_extensions)">
-  <xacro:include filename="bandeja.trans" />
-  <xacro:include filename="bandeja.gazebo" />
+  <xacro:include filename="bandeja_v2.trans" />
+  <xacro:include filename="bandeja_v2.gazebo" />
 </xacro:if>
 <link name="base_link">
   <inertial>
