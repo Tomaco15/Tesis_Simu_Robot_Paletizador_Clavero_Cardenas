@@ -1,4 +1,12 @@
-# Paquetes ROS 2 del proyecto
+# Paquetes ROS 2 del proyect
+no borrar
+rm -rf build/ install/ log/
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch robot_ensamble_description display.launch.py 
+ros2 launch bandeja_v2_description display.launch.py 
+
+
 
 Este directorio contiene el código fuente del workspace. Actualmente hay dos paquetes Python de ROS 2: uno describe el robot paletizador y otro describe la bandeja.
 
