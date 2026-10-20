@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<robot name="robot_v2" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- Mantener estas asignaciones alineadas con los visuales de robot_v2.xacro.
+     Los valores RGBA se comparten con materials.xacro. -->
+<xacro:macro name="gazebo_visual_color" params="rgba">
+  <visual>
+    <material>
+      <ambient>${rgba}</ambient>
+      <diffuse>${rgba}</diffuse>
+    </material>
+  </visual>
+</xacro:macro>
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <xacro:gazebo_visual_color rgba="${color_gris_muy_oscuro}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="base_x_1">
+  <xacro:gazebo_visual_color rgba="${color_plateado_metalico_brillante}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="x_link_1">
+  <xacro:gazebo_visual_color rgba="${color_plateado_metalico_brillante}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="y_link_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="z_link_1">
+  <xacro:gazebo_visual_color rgba="${color_plateado_metalico_brillante}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="robot_cabezal_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="acople_cabezal_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="cabezal_inferior_1">
+  <xacro:gazebo_visual_color rgba="${color_azul_violaceo}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="servo_mg996R_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="horn_Servo_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="acople_palas_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Paleta_grid_1_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Paleta_grid_2_1">
+  <xacro:gazebo_visual_color rgba="${color_negro_azabache_mate}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Pala_DER_1">
+  <xacro:gazebo_visual_color rgba="${color_cafe_oscuro}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Pala_IZQ_1">
+  <xacro:gazebo_visual_color rgba="${color_cafe_oscuro}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Soporte_1_1">
+  <xacro:gazebo_visual_color rgba="${color_silver}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Soporte_2_1">
+  <xacro:gazebo_visual_color rgba="${color_silver}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="complemento_cabezal_1">
+  <xacro:gazebo_visual_color rgba="${color_verde}" />
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+</robot>

@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<robot name="robot_v2" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="x_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="x_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="x_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="y_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="y_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="y_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="z_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="z_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="z_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="r_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="r_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="r_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<!-- grid_der sigue a grid mediante mimic; no tiene actuador independiente. -->
+
+<transmission name="grid_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="grid">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="grid_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

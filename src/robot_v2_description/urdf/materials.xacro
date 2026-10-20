@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="robot_v2" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- Editar los valores color_* aqui: URDF y Gazebo comparten esta paleta. -->
+
+<xacro:property name="color_silver" value="0.700 0.700 0.700 1.000" />
+<material name="silver">
+  <color rgba="${color_silver}"/>
+</material>
+
+<!-- URDF define color y opacidad. El acabado mate, el brillo y la
+     metalicidad se configuran en el material del simulador. -->
+
+<!-- Negro azabache, ligeramente más luminoso. -->
+<xacro:property name="color_negro_azabache_mate" value="0.080 0.080 0.080 1.000" />
+<material name="negro_azabache_mate">
+  <color rgba="${color_negro_azabache_mate}"/>
+</material>
+<!-- Gris muy oscuro, cercano al negro. -->
+<xacro:property name="color_gris_muy_oscuro" value="0.080 0.080 0.080 1.000" />
+<material name="gris_muy_oscuro">
+  <color rgba="${color_gris_muy_oscuro}"/>
+</material>
+
+<!-- Plateado claro de tono ligeramente frio. -->
+<xacro:property name="color_plateado_metalico_brillante" value="0.900 0.920 0.940 1.000" />
+<material name="plateado_metalico_brillante">
+  <color rgba="${color_plateado_metalico_brillante}"/>
+</material>
+
+<!-- Verde intenso. -->
+<xacro:property name="color_verde" value="0.050 0.550 0.120 1.000" />
+<material name="verde">
+  <color rgba="${color_verde}"/>
+</material>
+
+<!-- Café chocolate -->
+<xacro:property name="color_cafe_oscuro" value="0.320 0.190 0.110 1.000" />
+<material name="cafe_oscuro">
+  <color rgba="${color_cafe_oscuro}"/>
+</material>
+
+<!-- Azul violáceo oscuro, con tonalidad cercana al violeta. -->
+<xacro:property name="color_azul_violaceo" value="0.180 0.100 0.420 1.000" />
+<material name="azul_violaceo">
+  <color rgba="${color_azul_violaceo}"/>
+</material>
+</robot>
