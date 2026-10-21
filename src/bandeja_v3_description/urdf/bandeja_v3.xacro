@@ -1,9 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="bandeja_v3" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find bandeja_v3_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find bandeja_v3_description)/urdf/bandeja_v3.trans" />
-<xacro:include filename="$(find bandeja_v3_description)/urdf/bandeja_v3.gazebo" />
+<xacro:arg name="include_ros_extensions" default="true"/>
+<xacro:arg name="mesh_directory" default="package://bandeja_v3_description/meshes"/>
+<xacro:property name="mesh_directory" value="$(arg mesh_directory)"/>
+
+<xacro:include filename="materials.xacro" />
+<xacro:if value="$(arg include_ros_extensions)">
+  <xacro:include filename="bandeja_v3.trans" />
+  <xacro:include filename="bandeja_v3.gazebo" />
+</xacro:if>
 <link name="base_link">
   <inertial>
     <origin xyz="-0.0028918745677257505 -6.225704412810632e-05 0.02014736677352704" rpy="0 0 0"/>
@@ -13,14 +19,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find bandeja_v3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find bandeja_v3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="${mesh_directory}/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
