@@ -8,11 +8,11 @@ from pathlib import Path
 # ============================================================
 
 DATASET_ORIGINAL = Path(
-    "/home/cristian/Desktop/dataset_astra_blanca_200"
+    "/home/cristian/Desktop/dataset_bandeja_sola_600"
 )
 
 DATASET_SPLIT = Path(
-    "/home/cristian/Desktop/dataset_astra_blanca_200_split"
+    "/home/cristian/Desktop/dataset_bandeja_sola_600_yolo_split"
 )
 
 IMAGES_ORIG = DATASET_ORIGINAL / "images"
