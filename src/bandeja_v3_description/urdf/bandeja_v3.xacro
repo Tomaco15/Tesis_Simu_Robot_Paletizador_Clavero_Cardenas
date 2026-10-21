@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot name="bandeja_v3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bandeja_v3_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bandeja_v3_description)/urdf/bandeja_v3.trans" />
+<xacro:include filename="$(find bandeja_v3_description)/urdf/bandeja_v3.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0028918745677257505 -6.225704412810632e-05 0.02014736677352704" rpy="0 0 0"/>
+    <mass value="0.1995989885045743"/>
+    <inertia ixx="0.002471" iyy="0.0057" izz="0.007946" ixy="-1e-06" iyz="1e-06" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bandeja_v3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bandeja_v3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+</robot>
